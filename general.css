@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css2?family=Beiruti:wght@200..900&family=Markazi+Text:wght@400..700&display=swap');
+
+:root {
+    /* ========== MAIN BRAND COLORS (FROM LOGO) ========== */
+    /* تم استبدال الدرجات السابقة بـ Navy Blue والبرتقالي الخاص بالشعار */
+    --blue-primary: #153a70;
+    /* اللون الأزرق الأساسي في كلمة GEEB */
+    --blue-secondary: #1d4b8f;
+    /* درجة أفتح قليلاً للتدرجات */
+    --blue-accent: #0f2d5a;
+    /* أزرق عميق جداً */
+    --blue-dark: #0a1f3d;
+    /* اللون الداكن للقواعد */
+
+    /* ========== DARK THEME BACKGROUNDS ========== */
+    /* درجات مشتقة من أزرق الشعار بتركيز داكن جداً للواجهات */
+    --bg-main: #060d16;
+    --bg-secondary: #0a1625;
+    --bg-card: #0f1f33;
+
+    /* ========== HOVER / ACTIVE ========== */
+    --blue-hover: #2159a8;
+    --blue-light: #3578d5;
+
+    /* ========== TEXT COLORS ========== */
+    --text-main: #ffffff;
+    --text-secondary: #d1d9e6;
+    --text-muted: #7a8ba3;
+
+    /* ========== BORDERS ========== */
+    --border-color: #1a3352;
+    --border-light: #2c4d75;
+
+    /* ========== SHADOWS ========== */
+    --shadow-soft: 0 5px 20px rgba(0, 0, 0, 0.4);
+    --shadow-blue: 0 0 15px rgba(21, 58, 112, 0.3);
+
+    /* ========== BRAND ORANGE / GOLD (FROM LOGO R) ========== */
+    /* اللون البرتقالي/الذهبي الخاص بحرف الـ R والدوائر الإلكترونية */
+    --gold-soft: #f49a25;
+    /* البرتقالي الأساسي بالشعار */
+    --gold-glow: rgba(244, 154, 37, 0.3);
+
+    /* ========== STATUS COLORS ========== */
+    --correct: #27ae60;
+    --wrong: #bc0000;
+    --warrning: #f2994a;
+}
+
+body.light {
+    /* ========== MAIN BRAND COLORS (FROM LOGO) ========== */
+    /* الحفاظ على الألوان الأساسية للهوية */
+    --blue-primary: #153a70;
+    /* الأزرق الكحلي الأساسي */
+    --blue-secondary: #1d4b8f;
+    /* درجة متوسطة للروابط أو العناوين الفرعية */
+    --blue-accent: #0f2d5a;
+    /* أزرق عميق للنصوص شديدة الأهمية */
+    --blue-dark: #0a1f3d;
+
+    /* ========== LIGHT THEME BACKGROUNDS ========== */
+    /* استبدال الخلفيات الداكنة بدرجات فاتحة ونقية */
+    --bg-main: #edf1f6;
+    /* خلفية الصفحة الأساسية - مريحة للعين */
+    --bg-secondary: #cfcfcf;
+    /* خلفية العناصر الجانبية أو القوائم */
+    --bg-card: #ffffff;
+    /* خلفية البطاقات (Cards) لتبدو بارزة */
+
+    /* ========== HOVER / ACTIVE ========== */
+    --blue-hover: #1d4b8f;
+    /* تغميق اللون قليلاً عند التمرير في الثيم الفاتح */
+    --blue-light: #3578d5;
+    /* خلفية فاتحة جداً للعناصر المختارة (Active) */
+
+    /* ========== TEXT COLORS ========== */
+    /* عكس الألوان لتناسب الخلفية البيضاء */
+    --text-main: #1a2b42;
+    /* نص أساسي داكن جداً لسهولة القراءة */
+    --text-secondary: #4a5d77;
+    /* نص فرعي رمادي مزرق */
+    --text-muted: #8091a7;
+    /* نص باهت للملاحظات */
+
+    /* ========== BORDERS ========== */
+    /* حدود ناعمة وغير مزعجة */
+    --border-color: #e2e8f0;
+    /* حدود رمادية خفيفة */
+    --border-light: #f1f5f9;
+    /* حدود ناعمة جداً */
+
+    /* ========== SHADOWS ========== */
+    /* ظلال ناعمة تعطي عمقاً دون سواد كثيف */
+    --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.05);
+    --shadow-blue: 0 4px 12px rgba(21, 58, 112, 0.08);
+
+    /* ========== BRAND ORANGE / GOLD (FROM LOGO R) ========== */
+    --gold-soft: #f49a25;
+    /* البرتقالي كما هو ليبقى عنصر جذب */
+    --gold-glow: rgba(244, 154, 37, 0.15);
+    /* وهج أخف يتناسب مع البياض */
+
+    /* ========== STATUS COLORS ========== */
+    --correct: #219653;
+    --wrong: #d32f2f;
+    --warrning: #f2994a;
+}
+
+body,
+body * {
+    transition: all 0.3s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: "Beiruti", sans-serif;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--text-muted);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    background: transparent;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+button {
+    cursor: pointer;
+}
+
+hr {
+    border: none;
+    height: 4px;
+    width: 100%;
+    background: linear-gradient(to left, transparent, var(--text-muted), transparent);
+}
+
+body {
+    background: var(--bg-main);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: tajawal;
+}
+
+.container {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.sec-title {
+    color: var(--text-main);
+    font-size: 40px;
+    width: fit-content;
+    text-align: center;
+    padding: 0 10px;
+    position: relative;
+    margin: 0 auto;
+    text-transform: capitalize;
+}
+
+.sec-title::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    height: 10px;
+    width: 10px;
+    border: solid var(--blue-light);
+    border-width: 2px 0 0 2px;
+    animation: left 3s ease-in-out 20s infinite alternate;
+}
+
+@keyframes left {
+    0% {
+        left: 0;
+        transform: rotate(0deg);
+    }
+
+    50% {
+        left: calc(100% - 10px);
+        transform: rotate(90deg);
+    }
+
+    100% {
+        left: calc(100% - 10px);
+        transform: rotate(90deg);
+    }
+}
+
+.sec-title::after {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    right: 0;
+    height: 10px;
+    width: 10px;
+    border: solid var(--gold-soft);
+    border-width: 0 2px 2px 0;
+    animation: right 3s ease-in-out 20s infinite alternate;
+}
+
+@keyframes right {
+    0% {
+        right: 0;
+        transform: rotate(0deg);
+    }
+
+    50% {
+        right: calc(100% - 10px);
+        transform: rotate(90deg);
+    }
+
+    100% {
+        right: calc(100% - 10px);
+        transform: rotate(90deg);
+    }
+}
+
+@media (min-width: 640px) {
+    .container {
+        max-width: 640px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .container {
+        max-width: 1200px;
+    }
+}
+
+@media (min-width: 1536px) {
+    .container {
+        max-width: 1400px;
+    }
+}
+
+.theme-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background: var(--bg-body);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+    z-index: 999;
+}
