@@ -56,7 +56,7 @@ if (currentLang === "ar") {
 
 let headerMenuAText = document.querySelectorAll("header .menu a");
 let headerData = {
-  ar: ["الرئيسية", "الخدمات", "من نحن ؟", "تواصل معنا"],
+  ar: ["الرئيسية", "الخدمات", "من نحن؟", "تواصل معنا"],
   en: ["home", "services", "about us", "contact us"],
   href: ["#", "#", "#", "#"],
 };
@@ -99,7 +99,7 @@ let homeAboutUsTitle = document.querySelector(".home-about-us .sec-title");
 let homeAboutUsH2 = document.querySelector(".home-about-us h2");
 
 if (currentLang === "ar") {
-  homeAboutUsTitle.textContent = "من نحن ؟";
+  homeAboutUsTitle.textContent = "من نحن؟";
   homeAboutUsH2.innerHTML = `حلول وخدمات متقدمة ترتقي بمستوى الأمن <span>والحماية</span>`;
 } else {
   homeAboutUsTitle.textContent = "about us";
@@ -236,11 +236,11 @@ if (currentLang === "ar") {
 let homeFqaQuestionsData = [
   {
     ar: {
-      q: "ماذا يقدم نظام رقيب للمراقبة بالذكاء الاصطناعي ؟ ",
+      q: "ماذا يقدم نظام رقيب للمراقبة بالذكاء الاصطناعي؟ ",
       ans: "يحوّل رقيب كاميرات المراقبة التقليدية إلى نظام مراقبة ذكي. إذ يقوم برنامجنا المعتمد على الذكاء الاصطناعي بتحليل بث الفيديو لحظيًا لاكتشاف السلوكيات والمخاطر الأمنية والأنشطة التشغيلية. وهذا يساعد الشركات على تعزيز الأمان، ومتابعة العمليات، واستقبال تنبيهات فورية دون الحاجة إلى تركيب أجهزة جديدة.",
     },
     en: {
-      q: "What does the Rgeeb AI monitoring system do ?",
+      q: "What does the Rgeeb AI monitoring system do?",
       ans: "Rgeeb transforms standard CCTV cameras into intelligent monitoring systems. Our AI software analyzes video streams in real time to detect behaviors, safety risks, and operational activities. This allows businesses to improve security, monitor operations, and receive instant alerts without installing new hardware.",
     },
     openingStatus: "open",
@@ -248,11 +248,11 @@ let homeFqaQuestionsData = [
   },
   {
     ar: {
-      q: "هل أحتاج إلى تركيب كاميرات جديدة ؟ ",
+      q: "هل أحتاج إلى تركيب كاميرات جديدة؟ ",
       ans: " لا، لا تحتاج إلى تركيب كاميرات جديدة. يعمل Rgeeb مع كاميرات المراقبة الموجودة لديك بالفعل، حيث ترتبط منصتنا بنظام الفيديو الحالي وتطبق تحليلات الذكاء الاصطناعي على البث المباشر. وهذا يتيح لك تطوير قدرات المراقبة لديك دون الحاجة إلى استبدال الكاميرات أو البنية التحتية الحالية.",
     },
     en: {
-      q: "Do I need to install new cameras ?",
+      q: "Do I need to install new cameras?",
       ans: "No. Rgeeb works with your existing CCTV cameras. Our platform connects to your current video system and applies AI analysis to the live camera feeds. This means you can upgrade your monitoring capabilities without replacing your cameras or infrastructure.",
     },
     openingStatus: "",
@@ -260,11 +260,11 @@ let homeFqaQuestionsData = [
   },
   {
     ar: {
-      q: "ما أنواع الرصد والتنبيهات التي يستطيع الذكاء الاصطناعي تنفيذها ؟ ",
+      q: "ما أنواع الرصد والتنبيهات التي يستطيع الذكاء الاصطناعي تنفيذها؟ ",
       ans: " تستطيع نماذج الذكاء الاصطناعي لدينا رصد مجموعة واسعة من الأحداث والسلوكيات بحسب طبيعة البيئة التشغيلية. ويشمل ذلك مخالفات السلامة، والأنشطة المشبوهة، والدخول غير المصرح به، وسلوك الحشود، واستخدام المعدات، والحالات التشغيلية غير الطبيعية. كما يمكن للنظام إرسال تنبيهات أو تقارير عند وقوع أحداث محددة.",
     },
     en: {
-      q: "What types of detections can the AI perform ?",
+      q: "What types of detections can the AI perform?",
       ans: "Our AI models can detect a wide range of events and behaviors depending on the environment. This includes safety violations, suspicious activities, unauthorized access, crowd behavior, equipment usage, and operational anomalies. The system can also send alerts or reports when specific events occur.",
     },
     openingStatus: "",
@@ -320,6 +320,85 @@ function updateIcon(element) {
     icon.classList.remove("fa-minus");
     icon.classList.add("fa-plus");
   }
+}
+
+// clints comments
+
+let clintsCommentsTitle = document.querySelector(".clints-comments .sec-title");
+
+if (currentLang === "ar") {
+  clintsCommentsTitle.textContent = "ما يقول العملاء عن رقيب؟";
+} else {
+  clintsCommentsTitle.textContent = "what clients say about rgeeb?";
+}
+
+let clintsCommentsContainer = document.querySelector(
+  ".clints-comments .comments",
+);
+let clintsCommentsData = [
+  {
+    img: "media/comment1.png",
+    stars: 4,
+    ar: {
+      name: "عبدالرحمن",
+      job: "مدير تشغيل",
+      text: "ساعدنا رقيب في مراقبة النشاط في جميع أنحاء منشأتنا دون تغيير كاميراتنا الحالية. تنبيهات الذكاء الاصطناعي مفيدة للغاية.",
+    },
+    en: {
+      name: "Abdulrahman",
+      job: "Operations Manager",
+      text: "Rgeeb helped us monitor activity across our facility without changing our existing cameras. The AI alerts are extremely helpful",
+    },
+  },
+  {
+    img: "media/comment2.png",
+    stars: 5,
+    ar: {
+      name: "أحمد",
+      job: "مسؤول أمن",
+      text: "لقد تمكنا من تحسين الرؤية التشغيلية عبر مناطق متعددة باستخدام البنية التحتية الحالية لكاميرات المراقبة التلفزيونية المغلقة.",
+    },
+    en: {
+      name: "Ahmed",
+      job: "Security Supervisor",
+      text: "We were able to improve operational visibility across multiple areas using our current CCTV infrastructure.",
+    },
+  },
+  {
+    img: "media/comment3.png",
+    stars: 5,
+    ar: {
+      name: "لين",
+      job: "مديرة مدرسة",
+      text: "لقد سهّل النظام كثيراً تتبع الحوادث الأمنية والسلوك غير المعتاد في الوقت الفعلي.",
+    },
+    en: {
+      name: "Leen",
+      job: "School Administrator",
+      text: "The system made it much easier to track safety incidents and unusual behavior in real time.",
+    },
+  },
+];
+
+for (let i = 0; i < clintsCommentsData.length; i++) {
+  let comment = document.createElement("div");
+  comment.classList.add("comment");
+  let starsDiv = "";
+  for (let o = 0; o < clintsCommentsData[i].stars; o++) {
+    let star = `<i class="fa-solid fa-star"></i>`;
+    starsDiv += star;
+  }
+  comment.innerHTML = `
+    <div class="img">
+      <img src="${clintsCommentsData[i].img}" alt>
+    </div>
+    <h2>${clintsCommentsData[i][currentLang].name}</h2>
+    <h3>${clintsCommentsData[i][currentLang].job}</h3>
+    <div class="stars">
+        ${starsDiv}
+    </div>
+    <p>${clintsCommentsData[i][currentLang].text}</p>`;
+  clintsCommentsContainer.appendChild(comment);
 }
 
 // footer form

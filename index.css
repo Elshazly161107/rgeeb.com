@@ -502,9 +502,39 @@ html[dir='ltr'] .home-about-us .content .text::after {
 /* we provides */
 
 .we-provides {
+    position: relative;
     padding: 20px;
     width: 100%;
     background: var(--bg-secondary);
+}
+
+.we-provides>img {
+    position: absolute;
+    z-index: 1;
+    left: 5%;
+    bottom: 10px;
+    height: 250px;
+    filter: blur(1px) opacity(10%);
+    animation: we-provides-img 4s infinite alternate ease-in-out;
+}
+
+html[dir='ltr'] .we-provides>img {
+    left: auto;
+    right: 5%;
+}
+
+@keyframes we-provides-img {
+    0% {
+        transform: translateY(-10px) translateX(2px);
+    }
+
+    100% {
+        transform: translateY(10px) translateX(-2px);
+    }
+}
+
+.we-provides .container {
+    z-index: 2;
 }
 
 .we-provides .content {
@@ -710,6 +740,82 @@ html[dir='ltr'] .home-fqa .content .questions .q button i {
 .home-fqa .content .questions .q .ans p {
     padding: 10px;
     color: var(--bg-card);
+}
+
+/* clints comments */
+
+.clints-comments {
+    width: 100%;
+    padding: 20px;
+    background: var(--bg-secondary);
+}
+
+.clints-comments .comments {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.clints-comments .comment {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: var(--bg-main);
+    border-radius: 20px;
+    padding: 0 15px;
+    transition: 0.5s;
+}
+
+.clints-comments .comment:hover {
+    transform: translateY(-5px);
+    filter: drop-shadow(0 5px 10px var(--gold-glow));
+}
+
+.clints-comments .comment>* {
+    width: 100%;
+}
+
+.clints-comments .comment .img {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 15px 0;
+}
+
+.clints-comments .comment .img img {
+    height: 70px;
+    border-radius: 50%;
+}
+
+.clints-comments .comment h2 {
+    color: var(--text-main);
+    font-size: 35px;
+}
+
+.clints-comments .comment h3 {
+    color: var(--text-secondary);
+    font-size: 15px;
+    opacity: 0.5;
+}
+
+.clints-comments .comment .stars {
+    padding: 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5px;
+}
+
+.clints-comments .comment .stars i {
+    color: var(--gold-soft);
+}
+
+.clints-comments .comment p {
+    color: var(--text-main);
+    font-size: 20px;
+    padding: 0 0 15px;
 }
 
 /* footer */

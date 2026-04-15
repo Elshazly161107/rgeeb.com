@@ -38,7 +38,7 @@ langBtn.addEventListener("click", () => {
   //
 
   if (currentLang === "ar") {
-    homeAboutUsTitle.textContent = "من نحن ؟";
+    homeAboutUsTitle.textContent = "من نحن؟";
     homeAboutUsH2.innerHTML = `حلول وخدمات متقدمة ترتقي بمستوى الأمن <span>والحماية</span>`;
   } else {
     homeAboutUsTitle.textContent = "about us";
@@ -140,6 +140,37 @@ langBtn.addEventListener("click", () => {
       updateIcon(btn);
     });
   });
+
+  //
+
+  if (currentLang === "ar") {
+    clintsCommentsTitle.textContent = "ما يقول العملاء عن رقيب؟";
+  } else {
+    clintsCommentsTitle.textContent = "what clients say about rgeeb?";
+  }
+
+  clintsCommentsContainer.innerHTML = "";
+
+  for (let i = 0; i < clintsCommentsData.length; i++) {
+    let comment = document.createElement("div");
+    comment.classList.add("comment");
+    let starsDiv = "";
+    for (let o = 0; o < clintsCommentsData[i].stars; o++) {
+      let star = `<i class="fa-solid fa-star"></i>`;
+      starsDiv += star;
+    }
+    comment.innerHTML = `
+    <div class="img">
+      <img src="${clintsCommentsData[i].img}" alt>
+    </div>
+    <h2>${clintsCommentsData[i][currentLang].name}</h2>
+    <h3>${clintsCommentsData[i][currentLang].job}</h3>
+    <div class="stars">
+        ${starsDiv}
+    </div>
+    <p>${clintsCommentsData[i][currentLang].text}</p>`;
+    clintsCommentsContainer.appendChild(comment);
+  }
 
   // footer
 
