@@ -1,52 +1,14 @@
-// theme
-let body = document.body;
-let modeBtn = document.getElementById("theme-btn");
-let fade = document.querySelector(".theme-page");
-
-modeBtn.addEventListener("click", function () {
-  setTimeout(() => {
-    body.classList.toggle("light");
-
-    let icon = modeBtn.querySelector("i");
-    if (body.classList.contains("light")) {
-      icon.classList.replace("fa-sun", "fa-moon");
-    } else {
-      icon.classList.replace("fa-moon", "fa-sun");
-    }
-  }, 150);
-});
-
-// index main menu
-
-let menuBtn = document.querySelector(".menu-btn");
-let menu = document.querySelector("header .menu");
-
-menuBtn.addEventListener("click", function () {
-  menu.classList.toggle("open");
-  menuBtn.classList.toggle("fa-bars");
-  menuBtn.classList.toggle("fa-xmark");
-});
-
 // html
 
-let htmlPage = document.querySelector("html");
 htmlFun();
 
 // lang btn
 
-let langBtnSpan = document.querySelector("#lang-btn span");
-let langBtnImg = document.querySelector("#lang-btn img");
-theLangBtn();
+theLangBtn("gb.svg", "sa.svg");
 
 // header
 
-let headerMenuAText = document.querySelectorAll("header .menu a");
-let headerData = {
-  ar: ["الرئيسية", "الخدمات", "من نحن؟", "تواصل معنا"],
-  en: ["home", "services", "about us", "contact us"],
-  href: ["#", "#", "#", "#"],
-};
-header();
+header("");
 
 // face page
 
@@ -267,74 +229,5 @@ let clintsCommentsData = [
 clintsComments();
 
 // footer form
-
-let footerForm = document.querySelector("footer form");
-let footerFormSentBtn = document.querySelector("footer form button");
-let footerFormInput = document.querySelector("footer form input[type='email']");
-let footerFormerrorMsg = document.querySelector("footer form .error-msg");
-let footerData = {
-  ar: {
-    //
-    socialMediaPText:
-      "يوفر نظام المراقبة المتقدم لدينا، المدعوم بالذكاء الاصطناعي، حلولاً أمنية متكاملة لحماية منشآتك وأصولك.",
-    //
-    sendMsgH1Text: "النشرة البريدية",
-    sendMsgPText:
-      "اشترك في نشرتنا البريدية ليصلك كل جديد عن آخر التحديثات والأخبار !",
-    errorMsgPText: "الرجاء التأكد من صحة البريد المدخل",
-    //
-    contactH1Text: "معلومات التواصل",
-    contactTitlesText: ["البريد الالكتروني", "رقم الهاتف", "العنوان"],
-    contactAddressText:
-      "مبنى 3403، شارع أنس بن مالك حي الصحافة، الرياض 13321 المملكة العربية السعودية",
-    //
-    rights: "جميع الحقوق محفوظة لمنصة رقيب 2026 &copy;",
-  },
-  en: {
-    //
-    socialMediaPText:
-      "Our advanced AI-powered surveillance system provides comprehensive security solutions for your facilities and assets.",
-    //
-    sendMsgH1Text: "newsletter",
-    sendMsgPText:
-      "Subscribe to our newsletter to receive updates on the latest news!",
-    errorMsgPText: "Please verify the entered email",
-    //
-    contactH1Text: "contact",
-    contactTitlesText: ["email", "phone number", "address"],
-    contactAddressText:
-      "Building 3403, Anas Ibn Malik St. Al Sahafah District, Riyadh 13321 Saudi Arabia",
-    //
-    rights: "All rights reserved by rgeeb 2026 &copy;",
-  },
-};
-footerFormSentBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  if (footerFormInput.value === "") {
-    footerForm.classList.add("error");
-    footerFormerrorMsg.classList.add("active");
-    setTimeout(() => {
-      footerForm.classList.remove("error");
-      footerFormerrorMsg.classList.remove("active");
-    }, 2000);
-  } else {
-    footerFormInput.value = "";
-    footerForm.classList.add("sent");
-    setTimeout(() => {
-      footerForm.classList.remove("sent");
-    }, 2000);
-  }
-});
-//
-let socialMediaP = document.querySelector("footer .social-media p");
-//
-let sendMsgH1 = document.querySelector("footer .send-msg h1");
-let sendMsgP = document.querySelector("footer .send-msg p");
-let errorMsgP = document.querySelector("footer .send-msg .error-msg p");
-//
-let contactH1 = document.querySelector("footer .contact h1");
-let contactAddress = document.querySelector("footer .contact p");
-//
-let rightsP = document.querySelector("footer .rights p");
 
 footerText();

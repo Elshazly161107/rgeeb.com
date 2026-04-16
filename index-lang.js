@@ -2,8 +2,8 @@
 
 function applyLanguage() {
   htmlFun();
-  theLangBtn();
-  header();
+  theLangBtn("gb.svg", "sa.svg");
+  header("");
   facePage();
   homeAboutUs();
   homeServices();
@@ -39,31 +39,6 @@ document.addEventListener("DOMContentLoaded", function () {
   langBtn.click();
   langBtn.click();
 });
-
-// Functions
-
-function htmlFun() {
-  let lang = getLang();
-  let dir = sessionStorage.getItem("currentDir");
-  htmlPage.setAttribute("lang", lang);
-  htmlPage.setAttribute("dir", dir);
-}
-
-function theLangBtn() {
-  langBtnSpan.textContent = getLang() === "ar" ? "english" : "العربية";
-  if (getLang() === "ar") {
-    langBtnImg.setAttribute("src", "gb.svg");
-  } else {
-    langBtnImg.setAttribute("src", "sa.svg");
-  }
-}
-
-function header() {
-  for (let i = 0; i < headerMenuAText.length; i++) {
-    headerMenuAText[i].textContent = headerData[getLang()][i];
-    headerMenuAText[i].setAttribute("href", headerData.href[i]);
-  }
-}
 
 function facePage() {
   slidesText.textContent = facePageTextData[slidesIndex][getLang()];
@@ -194,23 +169,4 @@ function clintsComments() {
     <p>${clintsCommentsData[i][getLang()].text}</p>`;
     clintsCommentsContainer.appendChild(comment);
   }
-}
-
-function footerText() {
-  //
-  socialMediaP.textContent = footerData[getLang()].socialMediaPText;
-  //
-  sendMsgH1.textContent = footerData[getLang()].sendMsgH1Text;
-  sendMsgP.textContent = footerData[getLang()].sendMsgPText;
-  errorMsgP.textContent = footerData[getLang()].errorMsgPText;
-  //
-  contactH1.textContent = footerData[getLang()].contactH1Text;
-  for (let i = 0; i < footerData[getLang()].contactTitlesText.length; i++) {
-    document.querySelector(
-      `footer .contact div:nth-of-type(${i + 1}) h3`,
-    ).textContent = footerData[getLang()].contactTitlesText[i];
-  }
-  contactAddress.textContent = footerData[getLang()].contactAddressText;
-  //
-  rightsP.innerHTML = footerData[getLang()].rights;
 }

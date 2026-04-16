@@ -1,0 +1,240 @@
+header {
+    filter: drop-shadow(0 0 0);
+}
+
+.big-hero .bg-img {
+    background-image: url(../../media/services/big-hero.jpg);
+}
+
+
+/* home fqa */
+
+.fqa {
+    width: 100%;
+    height: fit-content;
+    padding: 20px;
+}
+
+.fqa .sec-title {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    /*  */
+    display: none;
+    /*  */
+}
+
+.fqa .content {
+    display: flex;
+    align-items: flex-start;
+    height: calc(100% - 40px);
+    gap: 20px;
+    padding: 20px 0 0;
+}
+
+.fqa .content .img {
+    height: 400px;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../../media/services/fqa.jpg);
+    opacity: 0.95;
+}
+
+@media (max-width: 1024px) {
+    .fqa .content {
+        height: fit-content;
+    }
+
+    .fqa .content .img {
+        display: none;
+    }
+}
+
+@media (max-width: 670px) {}
+
+.fqa .content .questions {
+    flex-grow: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.fqa .content .questions .q {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fqa .content .questions .q.open {
+    flex-grow: 1;
+}
+
+.fqa .content .questions .q button {
+    width: 100%;
+    position: relative;
+    padding: 10px 20px 10px 40px;
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    border-radius: 15px 15px 0 0;
+    border: 1px solid var(--text-secondary);
+}
+
+.fqa .content .questions .q button p {
+    width: fit-content;
+    text-align: start;
+    font-size: 25px;
+}
+
+.fqa .content .questions .q button i {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    font-size: 15px;
+    background: var(--bg-card);
+    padding: 5px;
+}
+
+@media (max-width: 470px) {
+    .fqa .content .questions .q button i {
+        display: none;
+    }
+}
+
+html[dir='ltr'] .fqa .content .questions .q button i {
+    left: auto;
+    right: 20px;
+}
+
+.fqa .content .questions .q .ans {
+    background: var(--text-secondary);
+    height: 0;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+.fqa .content .questions .q.open .ans {
+    height: 200px;
+    flex-grow: 1;
+}
+
+.fqa .content .questions .q .ans p {
+    padding: 10px;
+    color: var(--bg-card);
+}
+
+/* call us */
+
+.call-us {
+    padding: 20px;
+    width: 100%;
+    background: var(--bg-card);
+}
+
+.call-us .container {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    background: var(--gold-soft);
+    padding: 0;
+}
+
+.call-us .img {
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../../media/services/callus.jpg);
+    height: 200px;
+    position: relative;
+}
+
+@media (max-width: 550px) {
+    .call-us .container {
+        grid-template-columns: 1fr;
+    }
+
+    .call-us .img {
+        display: none;
+    }
+}
+
+.call-us .img .icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: calc(100% - 25px);
+    height: 50px;
+    width: 50px;
+    background: var(--blue-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold-soft);
+    font-size: 20px;
+    border-radius: 50%;
+}
+
+html[dir='rtl'] .call-us .img .icon {
+    left: auto;
+    right: calc(100% - 25px);
+}
+
+.call-us .content {
+    padding: 15px 5px 15px 40px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 15px;
+    color: var(--blue-primary);
+}
+
+html[dir='rtl'] .call-us .content {
+    padding: 15px 40px 15px 5px;
+}
+
+.call-us .content a {
+    direction: ltr;
+    font-size: 35px;
+    font-weight: 500;
+    color: var(--blue-primary);
+}
+
+.call-us .content a:hover {
+    text-decoration: none;
+}
+
+.call-us .content h2 {
+    text-transform: uppercase;
+    font-size: 25px;
+    font-weight: 300;
+}
+
+.call-us .content p {
+    font-weight: 300;
+    font-size: 20px;
+}
+
+@media (max-width: 500px) {
+    .call-us .content {
+        padding: 20px !important;
+    }
+
+    .call-us .content a {
+        font-size: 30px;
+    }
+
+    .call-us .content h2 {
+        font-size: 20px;
+    }
+
+    .call-us .content p {
+        font-size: 15px;
+    }
+}
