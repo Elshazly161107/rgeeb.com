@@ -1,62 +1,93 @@
-let langBtn = document.getElementById("lang-btn");
+// APPLY ALL
 
-langBtn.addEventListener("click", () => {
-  currentLang = currentLang === "ar" ? "en" : "ar";
+function applyLanguage() {
+  htmlFun();
+  theLangBtn();
+  header();
+  facePage();
+  homeAboutUs();
+  homeServices();
+  weProvides();
+  homeFqa();
+  clintsComments();
+  footerText();
+}
 
-  // html
+// TOGGLE LANG
 
-  let allElements = document.querySelectorAll("html body *");
+function toggleLang() {
+  let currentLang = getLang();
 
   if (currentLang === "ar") {
-    html.setAttribute("dir", "rtl");
-    html.setAttribute("lang", "ar");
+    sessionStorage.setItem("currentLang", "en");
+    sessionStorage.setItem("currentDir", "ltr");
   } else {
-    html.setAttribute("dir", "ltr");
-    html.setAttribute("lang", "en");
+    sessionStorage.setItem("currentLang", "ar");
+    sessionStorage.setItem("currentDir", "rtl");
   }
+}
 
-  // the btn style
+// EVENTS
 
-  langBtnSpan.textContent = currentLang === "ar" ? "english" : "العربية";
-  if (currentLang === "ar") {
+langBtn.addEventListener("click", function () {
+  toggleLang();
+  applyLanguage();
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  applyLanguage();
+  langBtn.click();
+  langBtn.click();
+});
+
+// Functions
+
+function htmlFun() {
+  let lang = getLang();
+  let dir = sessionStorage.getItem("currentDir");
+  htmlPage.setAttribute("lang", lang);
+  htmlPage.setAttribute("dir", dir);
+}
+
+function theLangBtn() {
+  langBtnSpan.textContent = getLang() === "ar" ? "english" : "العربية";
+  if (getLang() === "ar") {
     langBtnImg.setAttribute("src", "gb.svg");
   } else {
     langBtnImg.setAttribute("src", "sa.svg");
   }
+}
 
-  // header
-
+function header() {
   for (let i = 0; i < headerMenuAText.length; i++) {
-    headerMenuAText[i].textContent = headerData[currentLang][i];
+    headerMenuAText[i].textContent = headerData[getLang()][i];
     headerMenuAText[i].setAttribute("href", headerData.href[i]);
   }
+}
 
-  // face page
+function facePage() {
+  slidesText.textContent = facePageTextData[slidesIndex][getLang()];
+}
 
-  slidesText.textContent = facePageTextData[slidesIndex][currentLang];
-
-  //
-
-  if (currentLang === "ar") {
+function homeAboutUs() {
+  if (getLang() === "ar") {
     homeAboutUsTitle.textContent = "من نحن؟";
     homeAboutUsH2.innerHTML = `حلول وخدمات متقدمة ترتقي بمستوى الأمن <span>والحماية</span>`;
   } else {
     homeAboutUsTitle.textContent = "about us";
     homeAboutUsH2.innerHTML = `Advanced solutions and services elevating security <span>and protection</span>`;
   }
+}
 
-  //
-
-  if (currentLang === "ar") {
+function homeServices() {
+  if (getLang() === "ar") {
     homeServicesTitle.textContent = "خدمات نقدمها";
     homeServicesH2.innerHTML = `خدمات أمنية متميزة تعتمد على <span>الذكاء الاصطناعي</span>`;
   } else {
-    homeServicesTitle.textContent = "services we present";
+    homeServicesTitle.textContent = "Our services";
     homeServicesH2.innerHTML = `Awesome AI <span>security services</span>`;
   }
-
   homeServicesContainer.innerHTML = "";
-
   for (let i = 0; i < homeServicesData.length; i++) {
     let service = document.createElement("div");
     service.classList.add("service");
@@ -64,24 +95,22 @@ langBtn.addEventListener("click", () => {
     <div class="bg-img"></div>
     <div class="shadow"></div>
     <div class="content">
-        <h3>${homeServicesData[i][currentLang].h3}</h3>
-        <p>${homeServicesData[i][currentLang].p}</p>
+        <h3>${homeServicesData[i][getLang()].h3}</h3>
+        <p>${homeServicesData[i][getLang()].p}</p>
     </div>`;
     homeServicesContainer.appendChild(service);
   }
+}
 
-  //
-
-  if (currentLang === "ar") {
+function weProvides() {
+  if (getLang() === "ar") {
     weProvidesTitle.textContent = "نقدم لكم";
     weProvidesH2.innerHTML = `<span>الجيل الجديد</span> من حلول المراقبة الذكية بالذكاء الاصطناعي`;
   } else {
     weProvidesTitle.textContent = "we provides";
     weProvidesH2.innerHTML = `<span>Next-Gen</span> AI Surveillance Solutions.`;
   }
-
   weProvidesContainer.innerHTML = "";
-
   for (let i = 0; i < weProvidesData.length; i++) {
     let card = document.createElement("div");
     card.innerHTML = `
@@ -89,22 +118,20 @@ langBtn.addEventListener("click", () => {
         <i class="fa-solid fa-circle-check"></i>
     </div>
     <div class="describe">
-        <h3>${weProvidesData[i][currentLang].h3}</h3>
-        <p>${weProvidesData[i][currentLang].p}</p>
+        <h3>${weProvidesData[i][getLang()].h3}</h3>
+        <p>${weProvidesData[i][getLang()].p}</p>
     </div>`;
     weProvidesContainer.appendChild(card);
   }
+}
 
-  //
-
-  if (currentLang === "ar") {
+function homeFqa() {
+  if (getLang() === "ar") {
     homeFqaTitle.textContent = "الأسئلة الشائعة";
   } else {
     homeFqaTitle.textContent = "fqa";
   }
-
   homeFqaQuestionsContainer.innerHTML = "";
-
   for (let i = 0; i < homeFqaQuestionsData.length; i++) {
     let q = document.createElement("div");
     q.classList.add("q");
@@ -113,17 +140,15 @@ langBtn.addEventListener("click", () => {
     }
     q.innerHTML = `
     <button>
-    <p>${homeFqaQuestionsData[i][currentLang].q}</p>
+    <p>${homeFqaQuestionsData[i][getLang()].q}</p>
     <i class="fa-solid fa-${homeFqaQuestionsData[i].btnIcon}"></i>
     </button>
     <div class="ans">
-    <p>${homeFqaQuestionsData[i][currentLang].ans}</p>
+    <p>${homeFqaQuestionsData[i][getLang()].ans}</p>
     </div>`;
     homeFqaQuestionsContainer.appendChild(q);
   }
-
   homeFqaQuestionsBtn = document.querySelectorAll(".home-fqa .questions .q");
-
   homeFqaQuestionsBtn.forEach((btn) => {
     btn.addEventListener("click", () => {
       let isOpen = btn.classList.contains("open");
@@ -140,17 +165,15 @@ langBtn.addEventListener("click", () => {
       updateIcon(btn);
     });
   });
+}
 
-  //
-
-  if (currentLang === "ar") {
+function clintsComments() {
+  if (getLang() === "ar") {
     clintsCommentsTitle.textContent = "ما يقول العملاء عن رقيب؟";
   } else {
     clintsCommentsTitle.textContent = "what clients say about rgeeb?";
   }
-
   clintsCommentsContainer.innerHTML = "";
-
   for (let i = 0; i < clintsCommentsData.length; i++) {
     let comment = document.createElement("div");
     comment.classList.add("comment");
@@ -163,16 +186,31 @@ langBtn.addEventListener("click", () => {
     <div class="img">
       <img src="${clintsCommentsData[i].img}" alt>
     </div>
-    <h2>${clintsCommentsData[i][currentLang].name}</h2>
-    <h3>${clintsCommentsData[i][currentLang].job}</h3>
+    <h2>${clintsCommentsData[i][getLang()].name}</h2>
+    <h3>${clintsCommentsData[i][getLang()].job}</h3>
     <div class="stars">
         ${starsDiv}
     </div>
-    <p>${clintsCommentsData[i][currentLang].text}</p>`;
+    <p>${clintsCommentsData[i][getLang()].text}</p>`;
     clintsCommentsContainer.appendChild(comment);
   }
+}
 
-  // footer
-
-  footerText();
-});
+function footerText() {
+  //
+  socialMediaP.textContent = footerData[getLang()].socialMediaPText;
+  //
+  sendMsgH1.textContent = footerData[getLang()].sendMsgH1Text;
+  sendMsgP.textContent = footerData[getLang()].sendMsgPText;
+  errorMsgP.textContent = footerData[getLang()].errorMsgPText;
+  //
+  contactH1.textContent = footerData[getLang()].contactH1Text;
+  for (let i = 0; i < footerData[getLang()].contactTitlesText.length; i++) {
+    document.querySelector(
+      `footer .contact div:nth-of-type(${i + 1}) h3`,
+    ).textContent = footerData[getLang()].contactTitlesText[i];
+  }
+  contactAddress.textContent = footerData[getLang()].contactAddressText;
+  //
+  rightsP.innerHTML = footerData[getLang()].rights;
+}

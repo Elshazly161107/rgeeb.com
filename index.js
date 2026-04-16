@@ -1,5 +1,3 @@
-let currentLang = "ar";
-
 // theme
 let body = document.body;
 let modeBtn = document.getElementById("theme-btn");
@@ -31,26 +29,14 @@ menuBtn.addEventListener("click", function () {
 
 // html
 
-let html = document.querySelector("html");
-if (currentLang === "ar") {
-  html.setAttribute("dir", "rtl");
-  html.setAttribute("lang", "ar");
-} else {
-  html.setAttribute("dir", "ltr");
-  html.setAttribute("lang", "en");
-}
+let htmlPage = document.querySelector("html");
+htmlFun();
 
 // lang btn
 
 let langBtnSpan = document.querySelector("#lang-btn span");
-langBtnSpan.textContent = currentLang === "ar" ? "english" : "العربية";
-
 let langBtnImg = document.querySelector("#lang-btn img");
-if (currentLang === "ar") {
-  langBtnImg.setAttribute("src", "gb.svg");
-} else {
-  langBtnImg.setAttribute("src", "sa.svg");
-}
+theLangBtn();
 
 // header
 
@@ -60,10 +46,7 @@ let headerData = {
   en: ["home", "services", "about us", "contact us"],
   href: ["#", "#", "#", "#"],
 };
-for (let i = 0; i < headerMenuAText.length; i++) {
-  headerMenuAText[i].textContent = headerData[currentLang][i];
-  headerMenuAText[i].setAttribute("href", headerData.href[i]);
-}
+header();
 
 // face page
 
@@ -80,14 +63,13 @@ let facePageTextData = [
 let slides = document.querySelectorAll(".face-page .bg-img");
 let slidesIndex = 0;
 let slidesText = document.querySelector(".face-page .text h1");
-slidesText.textContent = facePageTextData[slidesIndex][currentLang];
-
+facePage();
 setInterval(() => {
   slides[slidesIndex].classList.remove("active");
   slidesIndex = (slidesIndex + 1) % slides.length;
   slidesText.classList.add("active");
   setTimeout(() => {
-    slidesText.textContent = facePageTextData[slidesIndex][currentLang];
+    facePage();
     slidesText.classList.remove("active");
   }, 200);
   slides[slidesIndex].classList.add("active");
@@ -98,13 +80,7 @@ setInterval(() => {
 let homeAboutUsTitle = document.querySelector(".home-about-us .sec-title");
 let homeAboutUsH2 = document.querySelector(".home-about-us h2");
 
-if (currentLang === "ar") {
-  homeAboutUsTitle.textContent = "من نحن؟";
-  homeAboutUsH2.innerHTML = `حلول وخدمات متقدمة ترتقي بمستوى الأمن <span>والحماية</span>`;
-} else {
-  homeAboutUsTitle.textContent = "about us";
-  homeAboutUsH2.innerHTML = `Advanced solutions and services elevating security <span>and protection</span>`;
-}
+homeAboutUs();
 
 // home services
 
@@ -146,45 +122,16 @@ let homeServicesData = [
 
 let homeServicesTitle = document.querySelector(".home-services .sec-title");
 let homeServicesH2 = document.querySelector(".home-services h2");
-
-if (currentLang === "ar") {
-  homeServicesTitle.textContent = "خدمات نقدمها";
-  homeServicesH2.innerHTML = `خدمات أمنية متميزة تعتمد على <span>الذكاء الاصطناعي</span>`;
-} else {
-  homeServicesTitle.textContent = "Our services";
-  homeServicesH2.innerHTML = `Awesome AI <span>security services</span>`;
-}
-
 let homeServicesContainer = document.querySelector(
   ".home-services .the-services",
 );
 
-for (let i = 0; i < homeServicesData.length; i++) {
-  let service = document.createElement("div");
-  service.classList.add("service");
-  service.innerHTML = `
-    <div class="bg-img"></div>
-    <div class="shadow"></div>
-    <div class="content">
-        <h3>${homeServicesData[i][currentLang].h3}</h3>
-        <p>${homeServicesData[i][currentLang].p}</p>
-    </div>`;
-  homeServicesContainer.appendChild(service);
-}
+homeServices();
 
 // we provides
 
 let weProvidesTitle = document.querySelector(".we-provides .sec-title");
 let weProvidesH2 = document.querySelector(".we-provides h2");
-
-if (currentLang === "ar") {
-  weProvidesTitle.textContent = "نقدم لكم";
-  weProvidesH2.innerHTML = `<span>الجيل الجديد</span> من حلول المراقبة الذكية بالذكاء الاصطناعي`;
-} else {
-  weProvidesTitle.textContent = "we provides";
-  weProvidesH2.innerHTML = `<span>Next-Gen</span> AI Surveillance Solutions.`;
-}
-
 let weProvidesData = [
   {
     ar: {
@@ -207,32 +154,13 @@ let weProvidesData = [
     },
   },
 ];
-
 let weProvidesContainer = document.querySelector(".we-provides .text>div");
 
-for (let i = 0; i < weProvidesData.length; i++) {
-  let card = document.createElement("div");
-  card.innerHTML = `
-    <div class="icon">
-        <i class="fa-solid fa-circle-check"></i>
-    </div>
-    <div class="describe">
-        <h3>${weProvidesData[i][currentLang].h3}</h3>
-        <p>${weProvidesData[i][currentLang].p}</p>
-    </div>`;
-  weProvidesContainer.appendChild(card);
-}
+weProvides();
 
 // home fqa
 
 let homeFqaTitle = document.querySelector(".home-fqa .sec-title");
-
-if (currentLang === "ar") {
-  homeFqaTitle.textContent = "الأسئلة الشائعة";
-} else {
-  homeFqaTitle.textContent = "fqa";
-}
-
 let homeFqaQuestionsData = [
   {
     ar: {
@@ -271,45 +199,7 @@ let homeFqaQuestionsData = [
     btnIcon: "plus",
   },
 ];
-
 let homeFqaQuestionsContainer = document.querySelector(".home-fqa .questions");
-
-for (let i = 0; i < homeFqaQuestionsData.length; i++) {
-  let q = document.createElement("div");
-  q.classList.add("q");
-  if (homeFqaQuestionsData[i].openingStatus === "open") {
-    q.classList.add(homeFqaQuestionsData[i].openingStatus);
-  }
-  q.innerHTML = `
-    <button>
-    <p>${homeFqaQuestionsData[i][currentLang].q}</p>
-    <i class="fa-solid fa-${homeFqaQuestionsData[i].btnIcon}"></i>
-    </button>
-    <div class="ans">
-    <p>${homeFqaQuestionsData[i][currentLang].ans}</p>
-    </div>`;
-  homeFqaQuestionsContainer.appendChild(q);
-}
-
-let homeFqaQuestionsBtn = document.querySelectorAll(".home-fqa .questions .q");
-
-homeFqaQuestionsBtn.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    let isOpen = btn.classList.contains("open");
-
-    homeFqaQuestionsBtn.forEach((otherBtn) => {
-      otherBtn.classList.remove("open");
-      updateIcon(otherBtn);
-    });
-
-    if (!isOpen) {
-      btn.classList.add("open");
-    }
-
-    updateIcon(btn);
-  });
-});
-
 function updateIcon(element) {
   let icon = element.querySelector("i");
 
@@ -321,17 +211,11 @@ function updateIcon(element) {
     icon.classList.add("fa-plus");
   }
 }
+homeFqa();
 
 // clints comments
 
 let clintsCommentsTitle = document.querySelector(".clints-comments .sec-title");
-
-if (currentLang === "ar") {
-  clintsCommentsTitle.textContent = "ما يقول العملاء عن رقيب؟";
-} else {
-  clintsCommentsTitle.textContent = "what clients say about rgeeb?";
-}
-
 let clintsCommentsContainer = document.querySelector(
   ".clints-comments .comments",
 );
@@ -380,26 +264,7 @@ let clintsCommentsData = [
   },
 ];
 
-for (let i = 0; i < clintsCommentsData.length; i++) {
-  let comment = document.createElement("div");
-  comment.classList.add("comment");
-  let starsDiv = "";
-  for (let o = 0; o < clintsCommentsData[i].stars; o++) {
-    let star = `<i class="fa-solid fa-star"></i>`;
-    starsDiv += star;
-  }
-  comment.innerHTML = `
-    <div class="img">
-      <img src="${clintsCommentsData[i].img}" alt>
-    </div>
-    <h2>${clintsCommentsData[i][currentLang].name}</h2>
-    <h3>${clintsCommentsData[i][currentLang].job}</h3>
-    <div class="stars">
-        ${starsDiv}
-    </div>
-    <p>${clintsCommentsData[i][currentLang].text}</p>`;
-  clintsCommentsContainer.appendChild(comment);
-}
+clintsComments();
 
 // footer form
 
@@ -407,25 +272,6 @@ let footerForm = document.querySelector("footer form");
 let footerFormSentBtn = document.querySelector("footer form button");
 let footerFormInput = document.querySelector("footer form input[type='email']");
 let footerFormerrorMsg = document.querySelector("footer form .error-msg");
-
-footerFormSentBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  if (footerFormInput.value === "") {
-    footerForm.classList.add("error");
-    footerFormerrorMsg.classList.add("active");
-    setTimeout(() => {
-      footerForm.classList.remove("error");
-      footerFormerrorMsg.classList.remove("active");
-    }, 2000);
-  } else {
-    footerFormInput.value = "";
-    footerForm.classList.add("sent");
-    setTimeout(() => {
-      footerForm.classList.remove("sent");
-    }, 2000);
-  }
-});
-
 let footerData = {
   ar: {
     //
@@ -462,7 +308,23 @@ let footerData = {
     rights: "All rights reserved by rgeeb 2026 &copy;",
   },
 };
-
+footerFormSentBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (footerFormInput.value === "") {
+    footerForm.classList.add("error");
+    footerFormerrorMsg.classList.add("active");
+    setTimeout(() => {
+      footerForm.classList.remove("error");
+      footerFormerrorMsg.classList.remove("active");
+    }, 2000);
+  } else {
+    footerFormInput.value = "";
+    footerForm.classList.add("sent");
+    setTimeout(() => {
+      footerForm.classList.remove("sent");
+    }, 2000);
+  }
+});
 //
 let socialMediaP = document.querySelector("footer .social-media p");
 //
@@ -474,24 +336,5 @@ let contactH1 = document.querySelector("footer .contact h1");
 let contactAddress = document.querySelector("footer .contact p");
 //
 let rightsP = document.querySelector("footer .rights p");
-
-function footerText() {
-  //
-  socialMediaP.textContent = footerData[currentLang].socialMediaPText;
-  //
-  sendMsgH1.textContent = footerData[currentLang].sendMsgH1Text;
-  sendMsgP.textContent = footerData[currentLang].sendMsgPText;
-  errorMsgP.textContent = footerData[currentLang].errorMsgPText;
-  //
-  contactH1.textContent = footerData[currentLang].contactH1Text;
-  for (let i = 0; i < footerData[currentLang].contactTitlesText.length; i++) {
-    document.querySelector(
-      `footer .contact div:nth-of-type(${i + 1}) h3`,
-    ).textContent = footerData[currentLang].contactTitlesText[i];
-  }
-  contactAddress.textContent = footerData[currentLang].contactAddressText;
-  //
-  rightsP.innerHTML = footerData[currentLang].rights;
-}
 
 footerText();
