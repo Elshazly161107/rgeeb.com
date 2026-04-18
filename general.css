@@ -194,7 +194,7 @@ header i:hover {
 
 .sec-title {
     color: var(--text-main);
-    font-size: 40px;
+    font-size: 35px;
     width: fit-content;
     text-align: center;
     padding: 0 10px;
@@ -417,7 +417,7 @@ footer .send-msg form {
     pointer-events: initial;
 }
 
-footer .send-msg form:is(.sent, .error) {
+footer .send-msg form:is(.sent, .error, .unclick) {
     pointer-events: none;
 }
 
@@ -484,6 +484,20 @@ footer .send-msg button i {
     transition: 0.3s;
 }
 
+footer .send-msg button i.spin {
+    animation: spinner 0.75s infinite ease-out;
+}
+
+@keyframes spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 footer .send-msg form.sent button i {
     transform: translate(30px, -30px);
 }
@@ -544,6 +558,25 @@ footer .send-msg form .error-msg.active {
 }
 
 footer .send-msg form .error-msg p {
+    padding: 5px;
+    font-weight: lighter;
+    text-transform: capitalize;
+}
+
+footer .send-msg form .email-found-msg {
+    background: var(--wrong);
+    transition: height 0.2s;
+    transform-origin: top;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+}
+
+footer .send-msg form .email-found-msg.active {
+    height: 35px;
+}
+
+footer .send-msg form .email-found-msg p {
     padding: 5px;
     font-weight: lighter;
     text-transform: capitalize;

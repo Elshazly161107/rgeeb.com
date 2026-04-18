@@ -147,6 +147,10 @@ body.no-face-page>*:is(:not(header, .to-top-btn, .theme-page)) {
     background: transparent;
 }
 
+input[type='hidden'] {
+    display: none;
+}
+
 button {
     cursor: pointer;
 }

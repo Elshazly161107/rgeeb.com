@@ -132,15 +132,20 @@
                 <div class="send-msg">
                     <h1></h1>
                     <p></p>
-                    <form action>
-                        <input type="email" name="email" placeholder="email">
-                        <button type="submit">
+                    <form id="my-newsletter-form">
+                        <input type="email" id="user_email_input" name="email"
+                            placeholder="email"
+                            required>
+                        <button type="submit" name="submit">
                             <i class="fa-solid fa-paper-plane"></i>
                         </button>
                         <div class="check">
                             <i class="fa-solid fa-check"></i>
                         </div>
                         <div class="error-msg">
+                            <p></p>
+                        </div>
+                        <div class="email-found-msg">
                             <p></p>
                         </div>
                     </form>
@@ -179,6 +184,8 @@
             <i class="fa-solid fa-arrow-up"></i>
         </div>
     </body>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="init.js"></script>
     <script src="index-lang.js"></script>
     <script src="index.js"></script>

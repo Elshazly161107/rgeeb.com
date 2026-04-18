@@ -10,6 +10,8 @@ function applyLanguage() {
   bigHeroText();
   fqa();
   callUsText();
+  processSteps();
+  ourServices();
 }
 
 // TOGGLE LANG
@@ -83,6 +85,62 @@ function fqa() {
 function callUsText() {
   callUsTitle.textContent = callUsData[getLang()].title;
   callUsP.textContent = callUsData[getLang()].p;
+}
+
+function processSteps() {
+  if (getLang() === "ar") {
+    processTitle.textContent = "خطوات العمل";
+    processH2.textContent = "خطوات العمل بكل بساطة";
+  } else {
+    processTitle.textContent = "Process";
+    processH2.textContent = "easy process steps";
+  }
+  processContainer.innerHTML = "";
+  for (let i = 0; i < processData.length; i++) {
+    console.log(processData[i][getLang()].title);
+    let step = document.createElement("div");
+    step.classList.add("step");
+    step.innerHTML = `
+    <div class="icon">
+        <i class="${processData[i].icon}"></i>
+        <div class="box-num">
+          <span>0${i + 1}</span>
+        </div>
+    </div>
+    <h3>${processData[i][getLang()].title}</h3>
+    <p>${processData[i][getLang()].p}</p>`;
+    processContainer.appendChild(step);
+  }
+}
+
+function ourServices() {
+  if (getLang() === "ar") {
+    ourServicesTitle.textContent = "خدماتنا";
+    ourServicesH2.textContent = "حلولنا الذكية لمختلف القطاعات";
+  } else {
+    ourServicesTitle.textContent = "our services";
+    ourServicesH2.textContent = "Check our awesome services";
+  }
+  ourServicesContainer.innerHTML = "";
+  for (let i = 0; i < ourServicesData.length; i++) {
+    let service = document.createElement("div");
+    service.classList.add("service");
+    service.innerHTML = `
+    <div class="img">
+      <img src="../../${ourServicesData[i].img}" alt>
+    </div>
+    <div class="icon">
+        <i class="${ourServicesData[i].icon}"></i>
+    </div>
+    <div class="content">
+      <h3>${ourServicesData[i][getLang()].title}</h3>
+      <p>${ourServicesData[i][getLang()].p}</p>
+      <h4>
+          <a href="${ourServicesData[i].href}">${ourServicesData[i][getLang()].a}</a>
+      </h4>
+    </div>`;
+    ourServicesContainer.appendChild(service);
+  }
 }
 
 // EVENTS

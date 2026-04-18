@@ -1,7 +1,3 @@
-header {
-    filter: drop-shadow(0 0 0);
-}
-
 .big-hero .bg-img {
     background-image: url(../../media/services/big-hero.jpg);
 }
@@ -95,7 +91,7 @@ header {
 .fqa .content .questions .q button i {
     position: absolute;
     top: 50%;
-    left: 20px;
+    left: 10px;
     transform: translateY(-50%);
     font-size: 15px;
     background: var(--bg-card);
@@ -110,7 +106,7 @@ header {
 
 html[dir='ltr'] .fqa .content .questions .q button i {
     left: auto;
-    right: 20px;
+    right: 10px;
 }
 
 .fqa .content .questions .q .ans {
@@ -237,4 +233,217 @@ html[dir='rtl'] .call-us .content {
     .call-us .content p {
         font-size: 15px;
     }
+}
+
+/* process */
+
+.process {
+    padding: 20px;
+    width: 100%;
+}
+
+.process .container>h2 {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 30px;
+    text-transform: capitalize;
+    padding: 15px;
+}
+
+.process .process-steps {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 20px;
+    padding-top: 20px;
+}
+
+.process .process-steps .step {
+    min-width: 300px;
+    max-width: 350px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.process .process-steps .step .icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+    width: 120px;
+    background: var(--bg-secondary);
+    border-radius: 25px;
+    color: var(--gold-soft);
+    font-size: 40px;
+}
+
+.process .process-steps .step .icon .box-num {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--blue-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.process .process-steps .step .icon .box-num span {
+    font-size: 20px;
+}
+
+.process .process-steps .step h3 {
+    color: var(--text-main);
+    font-size: 30px;
+    text-transform: capitalize;
+}
+
+.process .process-steps .step p {
+    text-align: center;
+    color: var(--text-main);
+    font-weight: 300;
+    font-size: 20px;
+}
+
+/* our services */
+
+.our-services {
+    padding: 20px;
+    width: 100%;
+    background: var(--bg-secondary);
+}
+
+.our-services .container>h2 {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 30px;
+    text-transform: capitalize;
+    padding: 15px;
+}
+
+.our-services .the-services {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 20px;
+    padding-top: 20px;
+}
+
+.our-services .the-services .service {
+    min-width: 300px;
+    max-width: 350px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    border-radius: 30px;
+    background: #7a8ba390;
+    transition: 0.5s;
+}
+
+.our-services .the-services .service .img {
+    height: 175px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.our-services .the-services .service .img img {
+    width: 100%;
+}
+
+@keyframes zoom-img {
+    0% {
+        scale: 1;
+    }
+
+    100% {
+        scale: 1.1;
+    }
+}
+
+.our-services .the-services .service:hover .img img {
+    animation: zoom-img 5s infinite ease-out alternate;
+}
+
+.our-services .the-services .service .icon {
+    position: absolute;
+    top: 145px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 60px;
+    width: 60px;
+    background: var(--blue-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold-soft);
+    font-size: 25px;
+    border-radius: 20px;
+}
+
+.our-services .the-services .service .content {
+    width: 100%;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.our-services .the-services .service .content>* {
+    padding: 0 10px;
+    margin-bottom: 10px;
+}
+
+.our-services .the-services .service .content h3 {
+    color: var(--gold-soft);
+    text-transform: uppercase;
+    word-spacing: 3px;
+    font-size: 30px;
+    padding-top: 10px;
+}
+
+.our-services .the-services .service .content p {
+    color: var(--text-main);
+    font-weight: 300;
+    text-align: center;
+    font-size: 20px;
+    flex-grow: 1;
+}
+
+
+.our-services .the-services .service .content h4 {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 10px;
+    background: var(--gold-soft);
+}
+
+.our-services .the-services .service .content h4 a {
+    color: var(--blue-primary);
+    font-weight: 400;
+    text-transform: capitalize;
+    font-size: 20px;
+}
+
+.our-services .the-services .service .content h4 a:hover {
+    text-decoration: none;
 }

@@ -1,3 +1,6 @@
+let currentEmailInNewsletter = [];
+let isEmailInNewsletterFound = false;
+
 // INIT
 
 let htmlPage = document.querySelector("html");
@@ -63,6 +66,11 @@ let footerForm = document.querySelector("footer form");
 let footerFormSentBtn = document.querySelector("footer form button");
 let footerFormInput = document.querySelector("footer form input[type='email']");
 let footerFormerrorMsg = document.querySelector("footer form .error-msg");
+let footerFormeEmailFoundMsg = document.querySelector(
+  "footer form .email-found-msg",
+);
+let theIcon = document.querySelector("footer .send-msg form button i");
+
 let footerData = {
   ar: {
     //
@@ -73,6 +81,7 @@ let footerData = {
     sendMsgPText:
       "اشترك في نشرتنا البريدية ليصلك كل جديد عن آخر التحديثات والأخبار !",
     errorMsgPText: "الرجاء التأكد من صحة البريد المدخل",
+    mailFoundMsgText: "البريد مسجل بالفعل",
     //
     contactH1Text: "معلومات التواصل",
     contactTitlesText: ["البريد الالكتروني", "رقم الهاتف", "العنوان"],
@@ -90,6 +99,7 @@ let footerData = {
     sendMsgPText:
       "Subscribe to our newsletter to receive updates on the latest news!",
     errorMsgPText: "Please verify the entered email",
+    mailFoundMsgText: "email already signed",
     //
     contactH1Text: "contact",
     contactTitlesText: ["email", "phone number", "address"],
@@ -99,29 +109,99 @@ let footerData = {
     rights: "All rights reserved by rgeeb 2026 &copy;",
   },
 };
-footerFormSentBtn.addEventListener("click", (e) => {
+
+emailjs.init("xrChcTWgEzmWSc972");
+
+footerForm.addEventListener("submit", function (e) {
   e.preventDefault();
-  if (footerFormInput.value === "") {
-    footerForm.classList.add("error");
-    footerFormerrorMsg.classList.add("active");
-    setTimeout(() => {
-      footerForm.classList.remove("error");
-      footerFormerrorMsg.classList.remove("active");
-    }, 2000);
-  } else {
-    footerFormInput.value = "";
-    footerForm.classList.add("sent");
-    setTimeout(() => {
-      footerForm.classList.remove("sent");
-    }, 2000);
+
+  const emailValue = footerFormInput.value;
+
+  // فحص إذا كان الحقل فارغاً
+  if (emailValue === "") {
+    showError(footerFormerrorMsg);
+    return;
   }
+
+  // فحص إذا كان الإيميل مسجلاً مسبقاً (استخدام includes أسهل من الـ for loop)
+  if (currentEmailInNewsletter.includes(emailValue)) {
+    showError(footerFormeEmailFoundMsg);
+    return;
+  }
+
+  // بـدء عملية الإرسال
+  startLoadingState();
+
+  const templateParams = {
+    email: emailValue,
+  };
+
+  emailjs.send("service_mdaa6dw", "template_iwcrh4z", templateParams).then(
+    function (response) {
+      handleSuccess(emailValue);
+    },
+    function (error) {
+      handleError();
+    },
+  );
+
+  console.log(currentEmailInNewsletter);
 });
+
+function startLoadingState() {
+  footerFormSentBtn.disabled = true;
+  footerForm.classList.add("unclick");
+  theIcon.classList.replace("fa-paper-plane", "fa-spinner");
+  theIcon.classList.add("spin");
+}
+
+function handleSuccess(emailValue) {
+  theIcon.classList.replace("fa-spinner", "fa-paper-plane");
+  theIcon.classList.remove("spin");
+  footerForm.classList.add("sent");
+  footerForm.classList.remove("unclick");
+
+  currentEmailInNewsletter.push(emailValue);
+  footerForm.reset();
+
+  setTimeout(() => {
+    footerForm.classList.remove("sent");
+    footerFormSentBtn.disabled = false;
+  }, 2000);
+}
+
+function showError(errorElement) {
+  footerForm.classList.add("error");
+  errorElement.classList.add("active");
+  setTimeout(() => {
+    footerForm.classList.remove("error");
+    errorElement.classList.remove("active");
+  }, 2000);
+}
+
+function handleError() {
+  theIcon.classList.replace("fa-spinner", "fa-paper-plane");
+  theIcon.classList.remove("spin");
+  footerForm.classList.add("error");
+  footerFormerrorMsg.classList.add("active");
+  footerForm.classList.remove("unclick");
+
+  setTimeout(() => {
+    footerForm.classList.remove("error");
+    footerFormerrorMsg.classList.remove("active");
+    footerFormSentBtn.disabled = false;
+  }, 2000);
+}
+
 //
 let socialMediaP = document.querySelector("footer .social-media p");
 //
 let sendMsgH1 = document.querySelector("footer .send-msg h1");
 let sendMsgP = document.querySelector("footer .send-msg p");
 let errorMsgP = document.querySelector("footer .send-msg .error-msg p");
+let EmailFoundMsgP = document.querySelector(
+  "footer .send-msg .email-found-msg p",
+);
 //
 let contactH1 = document.querySelector("footer .contact h1");
 let contactAddress = document.querySelector("footer .contact p");
@@ -165,6 +245,7 @@ function footerText() {
   sendMsgH1.textContent = footerData[getLang()].sendMsgH1Text;
   sendMsgP.textContent = footerData[getLang()].sendMsgPText;
   errorMsgP.textContent = footerData[getLang()].errorMsgPText;
+  EmailFoundMsgP.textContent = footerData[getLang()].mailFoundMsgText;
   //
   contactH1.textContent = footerData[getLang()].contactH1Text;
   for (let i = 0; i < footerData[getLang()].contactTitlesText.length; i++) {

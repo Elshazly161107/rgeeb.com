@@ -126,36 +126,60 @@ let homeFqaTitle = document.querySelector(".home-fqa .sec-title");
 let homeFqaQuestionsData = [
   {
     ar: {
-      q: "ماذا يقدم نظام رقيب للمراقبة بالذكاء الاصطناعي؟ ",
-      ans: "يحوّل رقيب كاميرات المراقبة التقليدية إلى نظام مراقبة ذكي. إذ يقوم برنامجنا المعتمد على الذكاء الاصطناعي بتحليل بث الفيديو لحظيًا لاكتشاف السلوكيات والمخاطر الأمنية والأنشطة التشغيلية. وهذا يساعد الشركات على تعزيز الأمان، ومتابعة العمليات، واستقبال تنبيهات فورية دون الحاجة إلى تركيب أجهزة جديدة.",
+      q: "ما هي منصة رقيب؟",
+      ans: "رقيب هي منصة مراقبة ذكية مدعومة بالذكاء الاصطناعي، تقوم بتحليل البث الحي للكاميرات لحظياً لاكتشاف الأحداث المهمة، وإرسال تنبيهات ذكية، وتوفير لوحات تحكم تساعدك على متابعة موقعك واتخاذ قرارات أسرع وأكثر دقة.",
     },
     en: {
-      q: "What does the Rgeeb AI monitoring system do?",
-      ans: "Rgeeb transforms standard CCTV cameras into intelligent monitoring systems. Our AI software analyzes video streams in real time to detect behaviors, safety risks, and operational activities. This allows businesses to improve security, monitor operations, and receive instant alerts without installing new hardware.",
+      q: "what is rgeeb?",
+      ans: "Rgeeb is an AI-powered monitoring system that analyzes live camera feeds in real time to detect important events, generate smart alerts, and provide dashboards that help you monitor your site and make faster, better decisions.",
     },
     openingStatus: "open",
     btnIcon: "minus",
   },
   {
     ar: {
-      q: "هل أحتاج إلى تركيب كاميرات جديدة؟ ",
-      ans: " لا، لا تحتاج إلى تركيب كاميرات جديدة. يعمل Rgeeb مع كاميرات المراقبة الموجودة لديك بالفعل، حيث ترتبط منصتنا بنظام الفيديو الحالي وتطبق تحليلات الذكاء الاصطناعي على البث المباشر. وهذا يتيح لك تطوير قدرات المراقبة لديك دون الحاجة إلى استبدال الكاميرات أو البنية التحتية الحالية.",
+      q: "ما الذي يميز رقيب عن أنظمة المراقبة التقليدية؟",
+      ans: "في أنظمة المراقبة التقليدية، يحتاج شخص ما إلى متابعة الشاشات بشكل مستمر ومراجعة التسجيلات يدوياً. أما رقيب فتعتمد على الذكاء الاصطناعي لمراقبة الموقع على مدار الساعة، وتمييز الأنشطة الطبيعية، واكتشاف الأحداث غير المعتادة، وتحويل ساعات طويلة من الفيديو إلى تنبيهات واضحة ومعلومات عملية قابلة للاستفادة.",
     },
     en: {
-      q: "Do I need to install new cameras?",
-      ans: "No. Rgeeb works with your existing CCTV cameras. Our platform connects to your current video system and applies AI analysis to the live camera feeds. This means you can upgrade your monitoring capabilities without replacing your cameras or infrastructure.",
+      q: "How is Rgeeb different from traditional CCTV monitoring?",
+      ans: "With traditional systems, someone has to constantly watch the screens and manually review footage. Rgeeb uses AI to automatically monitor 24/7, filter out normal activity, detect unusual events, and turn hours of video into clear alerts and insights.",
     },
     openingStatus: "",
     btnIcon: "plus",
   },
   {
     ar: {
-      q: "ما أنواع الرصد والتنبيهات التي يستطيع الذكاء الاصطناعي تنفيذها؟ ",
-      ans: " تستطيع نماذج الذكاء الاصطناعي لدينا رصد مجموعة واسعة من الأحداث والسلوكيات بحسب طبيعة البيئة التشغيلية. ويشمل ذلك مخالفات السلامة، والأنشطة المشبوهة، والدخول غير المصرح به، وسلوك الحشود، واستخدام المعدات، والحالات التشغيلية غير الطبيعية. كما يمكن للنظام إرسال تنبيهات أو تقارير عند وقوع أحداث محددة.",
+      q: "هل أحتاج إلى استبدال كاميرات المراقبة الحالية لاستخدام رقيب؟",
+      ans: "في معظم الحالات، لا. صُممت Rgeeb لتعمل مع أغلب أنظمة كاميرات المراقبة الحديثة المعتمدة على بروتوكول IP، حيث يتم ربطها بالبنية الحالية لديك للاستفادة القصوى من الكاميرات الموجودة دون الحاجة إلى استبدالها.",
     },
     en: {
-      q: "What types of detections can the AI perform?",
-      ans: "Our AI models can detect a wide range of events and behaviors depending on the environment. This includes safety violations, suspicious activities, unauthorized access, crowd behavior, equipment usage, and operational anomalies. The system can also send alerts or reports when specific events occur.",
+      q: "Do I need to replace my existing cameras to use Rgeeb?",
+      ans: "In most cases, no. Rgeeb is designed to work with most modern IP-based camera systems. We simply connect to your existing infrastructure and help you get more value from the cameras you already have.",
+    },
+    openingStatus: "",
+    btnIcon: "plus",
+  },
+  {
+    ar: {
+      q: "ما أنواع الأحداث التي تستطيع رقيب اكتشافها؟",
+      ans: "يمكن تهيئة رقيب لاكتشاف مجموعة واسعة من الحالات، مثل التواجد في المناطق المقيّدة، والتجمعات غير المعتادة، والحركة خارج الأوقات المصرّح بها، والتجمهر في المواقع الحساسة، وغيرها من الأنماط التي قد تؤثر على السلامة أو الأمن أو كفاءة التشغيل، وذلك بحسب احتياجات موقعك.",
+    },
+    en: {
+      q: "What kind of events can Rgeeb detect?",
+      ans: "Rgeeb can be configured to detect cases such as: presence in restricted areas, unusual gatherings, movement during unauthorized hours, loitering in sensitive zones, and other patterns that may impact safety, security, or operations—depending on your site’s needs.",
+    },
+    openingStatus: "",
+    btnIcon: "plus",
+  },
+  {
+    ar: {
+      q: "كيف يتعامل رقيب مع خصوصية البيانات وأمانها؟ ",
+      ans: "نتعامل مع خصوصية البيانات وأمنها بأعلى درجات الجدية. يتم إدارة بث الفيديو والبيانات المرتبطة به وفق ضوابط صارمة للتحكم في الوصول، والتسجيل، والممارسات الأمنية، بما يضمن وصول المستخدمين المصرّح لهم فقط إلى المعلومات، مع الالتزام بمتطلبات البيئات المهنية والتشغيلية.",
+    },
+    en: {
+      q: "How does Rgeeb handle data privacy and security?",
+      ans: "We take privacy and security seriously. Video streams and related data are handled under strict access control, logging, and security practices, ensuring that only authorized users can access the information and that the system meets the requirements of professional environments.",
     },
     openingStatus: "",
     btnIcon: "plus",
