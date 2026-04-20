@@ -207,7 +207,7 @@ let clintsCommentsContainer = document.querySelector(
 );
 let clintsCommentsData = [
   {
-    img: "media/comment1.png",
+    img: "media/user-profile.jpg",
     stars: 4,
     ar: {
       name: "عبدالرحمن",
@@ -221,7 +221,7 @@ let clintsCommentsData = [
     },
   },
   {
-    img: "media/comment2.png",
+    img: "media/user-profile.jpg",
     stars: 5,
     ar: {
       name: "أحمد",
@@ -235,7 +235,7 @@ let clintsCommentsData = [
     },
   },
   {
-    img: "media/comment3.png",
+    img: "media/user-profile.jpg",
     stars: 5,
     ar: {
       name: "لين",

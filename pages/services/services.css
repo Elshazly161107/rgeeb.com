@@ -262,11 +262,19 @@ html[dir='rtl'] .call-us .content {
 .process .process-steps .step {
     min-width: 300px;
     max-width: 350px;
+    height: 300px;
     padding: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.process .process-steps .step:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 5px 1px var(--gold-soft);
 }
 
 .process .process-steps .step .icon {
@@ -351,6 +359,10 @@ html[dir='rtl'] .call-us .content {
     border-radius: 30px;
     background: #7a8ba390;
     transition: 0.5s;
+}
+
+.our-services .the-services .service:hover {
+    transform: translateY(-5px);
 }
 
 .our-services .the-services .service .img {
@@ -446,4 +458,95 @@ html[dir='rtl'] .call-us .content {
 
 .our-services .the-services .service .content h4 a:hover {
     text-decoration: none;
+}
+
+/* services contact us */
+
+.services-contact-us {
+    padding: 20px;
+    width: 100%;
+}
+
+.services-contact-us .container>h2 {
+    color: var(--gold-soft);
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    padding: 5px;
+}
+
+.services-contact-us .container>h3 {
+    color: var(--text-secondary);
+    width: 100%;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 300;
+    padding: 5px;
+}
+
+.services-contact-us .contact-types {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 20px;
+    gap: 20px;
+}
+
+.services-contact-us .contact-types>div {
+    min-width: 300px;
+    max-width: 350px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+    gap: 15px;
+    background: #7a8ba399;
+    border-radius: 20px;
+}
+
+.services-contact-us .contact-types>div h4 {
+    font-size: 25px;
+    color: var(--gold-soft);
+    text-transform: capitalize;
+}
+
+.services-contact-us .contact-types>div p {
+    font-size: 20px;
+    font-weight: 300;
+    color: var(--text-main);
+}
+
+.services-contact-us .contact-types>div p:first-of-type {
+    flex-grow: 1;
+}
+
+.services-contact-us .contact-types>div p:last-of-type {
+    direction: ltr;
+}
+
+.services-contact-us .contact-types>div a {
+    margin: 0 auto;
+    text-decoration: none;
+    padding: 5px 10px;
+    background: var(--blue-primary);
+    color: var(--gold-soft);
+    font-weight: 300;
+    font-size: 20px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.services-contact-us .contact-types>div a:hover {
+    filter: contrast(125%);
+}
+
+footer {
+    background: var(--bg-card);
+}
+
+footer .rights {
+    background: var(--bg-main);
 }

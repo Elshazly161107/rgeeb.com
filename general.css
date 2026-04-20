@@ -305,6 +305,8 @@ header i:hover {
     text-transform: uppercase;
     font-weight: 300;
     font-size: 120px;
+    letter-spacing: -10px;
+    word-spacing: 25px;
 }
 
 .big-hero img {

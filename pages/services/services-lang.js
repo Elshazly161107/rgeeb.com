@@ -12,6 +12,7 @@ function applyLanguage() {
   callUsText();
   processSteps();
   ourServices();
+  servicesContactUs();
 }
 
 // TOGGLE LANG
@@ -140,6 +141,31 @@ function ourServices() {
       </h4>
     </div>`;
     ourServicesContainer.appendChild(service);
+  }
+}
+
+function servicesContactUs() {
+  if (getLang() === "ar") {
+    serviceContactUsTitle.textContent = "تواصل معنا";
+    serviceContactUsH2.textContent =
+      "اختر الحل الأنسب لاحتياجاتك في المراقبة الذكية";
+    serviceContactUsH3.textContent =
+      "أخبرنا عن موقعك، والكاميرات المتوفرة لديك، وأهدافك من المراقبة، وسيساعدك فريقنا في اختيار الحل المناسب لعملك.";
+  } else {
+    serviceContactUsTitle.textContent = "GET IN TOUCH";
+    serviceContactUsH2.textContent = "Discuss Your AI Monitoring Needs";
+    serviceContactUsH3.textContent =
+      "Tell us about your site, cameras, and monitoring goals. Our team will help you choose the right AI solution for your business.";
+  }
+  serviceContactUsContainer.innerHTML = "";
+  for (let i = 0; i < serviceContactUsData.length; i++) {
+    let contactDiv = document.createElement("div");
+    contactDiv.innerHTML = `
+    <h4>${serviceContactUsData[i][getLang()].title}</h4>
+    <p>${serviceContactUsData[i][getLang()].p1}</p>
+    <p>${serviceContactUsData[i][getLang()].p2}</p>
+    <a href="${serviceContactUsData[i].href}">${serviceContactUsData[i][getLang()].a}</a>`;
+    serviceContactUsContainer.appendChild(contactDiv);
   }
 }
 

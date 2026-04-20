@@ -1,3 +1,4 @@
+htmlFun();
 header();
 theLangBtn("../../gb.svg", "../../sa.svg");
 footerText();
@@ -146,7 +147,7 @@ let ourServicesData = [
   {
     icon: "fa-solid fa-utensils",
     img: "media/services/restaurant.png",
-    href: "restaurant/restaurant.html",
+    href: "restaurant-stores/restaurant-stores.html",
     ar: {
       title: "المطاعم والمتاجر",
       p: "تحليلات ذكية لسرعة الخدمة، وأداء الموظفين، وفهم حركة الطلب، وتعزيز السلامة داخل بيئة العمل.",
@@ -205,3 +206,66 @@ let ourServicesData = [
   },
 ];
 ourServices();
+
+// services contact us
+
+let serviceContactUsTitle = document.querySelector(
+  ".services-contact-us .sec-title",
+);
+let serviceContactUsH2 = document.querySelector(
+  ".services-contact-us .container>h2",
+);
+let serviceContactUsH3 = document.querySelector(
+  ".services-contact-us .container>h3",
+);
+let serviceContactUsContainer = document.querySelector(
+  ".services-contact-us .contact-types",
+);
+let serviceContactUsData = [
+  {
+    href: "tel:+966558240210",
+    ar: {
+      title: "اتصل بنا",
+      p1: "تحدث مباشرة مع فريقنا للحصول على مساعدة فورية واستشارة خاصة بمشروعك.",
+      p2: "+966 55 824 0210",
+      a: "اتصل الآن",
+    },
+    en: {
+      title: "Call Us",
+      p1: "Speak directly with our team for immediate assistance and project consultation.",
+      p2: "+966 55 824 0210",
+      a: "call now",
+    },
+  },
+  {
+    href: "mailto:Partners@rgeeb.com",
+    ar: {
+      title: "راسلنا عبر الايميل",
+      p1: "أرسل لنا تفاصيل مشروعك واحتياجاتك، وسيتواصل معك فريقنا برد يناسب متطلباتك.",
+      p2: "Partners@rgeeb.com",
+      a: "ارسل بريد الكتروني",
+    },
+    en: {
+      title: "Email Us",
+      p1: "Send your project details and requirements to receive a tailored response from our team.",
+      p2: "Partners@rgeeb.com",
+      a: "send email",
+    },
+  },
+  {
+    href: "",
+    ar: {
+      title: "اطلب عرضًا توضيحيًا",
+      p1: "احجز استشارة سريعة للتعرّف على حل المراقبة الذكية الأنسب لنشاطك التجاري أو منشأتك.",
+      p2: "استشارة مخصصة متاحة",
+      a: "احجز عرضًا توضيحيًّا",
+    },
+    en: {
+      title: "Request a Demo",
+      p1: "Book a quick consultation to explore the right AI monitoring solution for your business or facility.",
+      p2: "Custom consultation available",
+      a: "book a demo",
+    },
+  },
+];
+servicesContactUs();
