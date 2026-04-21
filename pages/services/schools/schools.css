@@ -292,7 +292,7 @@ html[dir='rtl'] .main-service .content li::before {
 .call-us {
     padding: 20px;
     width: 100%;
-    background: var(--bg-card);
+    background: var(--bg-main);
 }
 
 .call-us .container {
@@ -394,4 +394,14 @@ html[dir='rtl'] .call-us .content {
     .call-us .content p {
         font-size: 15px;
     }
+}
+
+/* footer */
+
+footer {
+    background: var(--bg-card);
+}
+
+footer .rights {
+    background: var(--bg-main);
 }

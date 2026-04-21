@@ -32,10 +32,10 @@ function toggleLang() {
 
 function bigHeroText() {
   if (getLang() === "ar") {
-    bigHero.textContent = "محطات الوقود";
+    bigHero.textContent = "الصيدليات";
     bigHero.style.fontFamily = `"Beiruti", sans-serif`;
   } else {
-    bigHero.textContent = "gas stations";
+    bigHero.textContent = "pharmacies";
     bigHero.style.fontFamily = `"Oswald", sans-serif`;
   }
 }
@@ -54,14 +54,14 @@ function mainSec() {
 function generalFeatures() {
   if (getLang() === "ar") {
     generalFeaturesh2.innerHTML =
-      "مزايا الذكاء الاصطناعي<br>كيف تعزز المراقبة بالذكاء الاصطناعي كفاءة تشغيل محطات الوقود";
+      "مزايا الذكاء الاصطناعي<br>كيف تعزز المراقبة بالذكاء الاصطناعي كفاءة تشغيل الصيدليات";
     generalFeaturesP.textContent =
-      "تحلّل رقيب بث الكاميرات بشكل لحظي لمتابعة أداء الموظفين، وتعزيز الالتزام بإجراءات السلامة، واكتشاف المخاطر التشغيلية في مختلف أنحاء المحطة.";
+      "يقوم رقيب بتحليل بث الكاميرات داخل الصيدلية بشكل لحظي لمتابعة حركة الخدمة، ومناطق المخزون، وعمليات الدفع عند الصندوق. يستطيع النظام اكتشاف الأحداث التشغيلية وتوفير تنبيهات تساعد مديري الصيدليات على الحفاظ على توفر المنتجات، وضمان شفافية العمليات، وتقديم خدمة عملاء أكثر كفاءة.";
   } else {
     generalFeaturesh2.innerHTML =
-      "AI FEATURES <br> How AI Monitoring Improves Gas Station Operations";
+      "AI FEATURES <br> How AI Monitoring Improves Pharmacies Operations";
     generalFeaturesP.textContent =
-      "Rgeeb analyzes real-time camera feeds to monitor employee activity, enforce safety procedures, and detect operational risks across the station.";
+      "Rgeeb analyzes real-time camera feeds inside pharmacies to monitor service flow, inventory areas, and checkout operations. The platform detects operational events and provides alerts that help pharmacy managers maintain product availability, transaction transparency, and efficient customer service.";
   }
   generalFeaturesContainer.innerHTML = "";
   for (let i = 0; i < generalFeaturesData.length; i++) {

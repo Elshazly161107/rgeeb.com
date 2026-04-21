@@ -32,10 +32,10 @@ function toggleLang() {
 
 function bigHeroText() {
   if (getLang() === "ar") {
-    bigHero.textContent = "محطات الوقود";
+    bigHero.textContent = "الصالات الرياضية";
     bigHero.style.fontFamily = `"Beiruti", sans-serif`;
   } else {
-    bigHero.textContent = "gas stations";
+    bigHero.textContent = "gyms";
     bigHero.style.fontFamily = `"Oswald", sans-serif`;
   }
 }
@@ -54,14 +54,14 @@ function mainSec() {
 function generalFeatures() {
   if (getLang() === "ar") {
     generalFeaturesh2.innerHTML =
-      "مزايا الذكاء الاصطناعي<br>كيف تعزز المراقبة بالذكاء الاصطناعي كفاءة تشغيل محطات الوقود";
+      "مزايا الذكاء الاصطناعي<br>كيف تعزز المراقبة بالذكاء الاصطناعي كفاءة تشغيل الصالات الرياضية";
     generalFeaturesP.textContent =
-      "تحلّل رقيب بث الكاميرات بشكل لحظي لمتابعة أداء الموظفين، وتعزيز الالتزام بإجراءات السلامة، واكتشاف المخاطر التشغيلية في مختلف أنحاء المحطة.";
+      "يقوم نظام رقيب بتحليل بث الكاميرات بشكل لحظي لمتابعة نشاط الصالة الرياضية، والتأكد من التزام المدربين بالجداول التدريبية، واكتشاف المخاطر أو الحالات غير الطبيعية داخل المنشأة.";
   } else {
     generalFeaturesh2.innerHTML =
-      "AI FEATURES <br> How AI Monitoring Improves Gas Station Operations";
+      "AI FEATURES <br> How AI Monitoring Improves Gyms Operations";
     generalFeaturesP.textContent =
-      "Rgeeb analyzes real-time camera feeds to monitor employee activity, enforce safety procedures, and detect operational risks across the station.";
+      "Rgeeb analyzes real-time camera feeds to monitor gym activity, ensure trainers follow schedules, and detect safety risks or abnormal situations across the facility.";
   }
   generalFeaturesContainer.innerHTML = "";
   for (let i = 0; i < generalFeaturesData.length; i++) {

@@ -37,7 +37,7 @@ function bigHeroText() {
     bigHero.style.fontFamily = `"Beiruti", sans-serif`;
   } else {
     bigHero.textContent = "services";
-    bigHero.style.fontFamily = `"Instrument Serif", serif`;
+    bigHero.style.fontFamily = `"Oswald", sans-serif`;
   }
 }
 

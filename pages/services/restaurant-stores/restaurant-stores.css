@@ -179,27 +179,27 @@ html[dir='ltr'] .general-features>img {
 
 /* service */
 
-.gas-service {
+.main-service {
     padding: 20px;
     width: 100%;
 }
 
-.gas-service:nth-of-type(n) {
+.main-service:nth-of-type(n) {
     background: transparent;
 }
 
-.gas-service:nth-of-type(2n) {
+.main-service:nth-of-type(2n) {
     background: var(--bg-card);
 }
 
-.gas-service:nth-of-type(n) .container {
+.main-service:nth-of-type(n) .container {
     display: grid;
     grid-template-columns: 1fr 300px;
     align-items: center;
     gap: 20px;
 }
 
-.gas-service:nth-of-type(2n) .container {
+.main-service:nth-of-type(2n) .container {
     display: grid;
     grid-template-columns: 300px 1fr;
     align-items: center;
@@ -208,13 +208,13 @@ html[dir='ltr'] .general-features>img {
 }
 
 @media (max-width: 760px) {
-    .gas-service .container {
+    .main-service .container {
         grid-template-columns: 1fr !important;
         grid-template-rows: auto 1fr;
     }
 }
 
-.gas-service .video {
+.main-service .video {
     height: 400px;
     overflow: hidden;
     display: flex;
@@ -224,15 +224,15 @@ html[dir='ltr'] .general-features>img {
     transition: 0.5s;
 }
 
-.gas-service video {
+.main-service video {
     width: 100%;
 }
 
-.gas-service .video:hover {
+.main-service .video:hover {
     transform: translateY(-10px);
 }
 
-.gas-service .content {
+.main-service .content {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -241,18 +241,18 @@ html[dir='ltr'] .general-features>img {
     padding: 0 20px;
 }
 
-.gas-service .content h2 {
+.main-service .content h2 {
     color: var(--gold-soft);
     font-size: 30px;
 }
 
-.gas-service .content p {
+.main-service .content p {
     color: var(--text-main);
     font-weight: 300;
     font-size: 20px;
 }
 
-.gas-service .content ul {
+.main-service .content ul {
     list-style: none;
     display: flex;
     flex-direction: column;
@@ -262,13 +262,13 @@ html[dir='ltr'] .general-features>img {
     width: 100%;
 }
 
-.gas-service .content li {
+.main-service .content li {
     position: relative;
     font-size: 17px;
     width: 100%;
 }
 
-.gas-service .content li::before {
+.main-service .content li::before {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -280,7 +280,7 @@ html[dir='ltr'] .general-features>img {
     background: var(--gold-soft);
 }
 
-html[dir='rtl'] .gas-service .content li::before {
+html[dir='rtl'] .main-service .content li::before {
     left: auto;
     right: -15px;
 }

@@ -36,7 +36,7 @@ function bigHeroText() {
     bigHero.style.fontFamily = `"Beiruti", sans-serif`;
   } else {
     bigHero.textContent = "Restaurants & Stores";
-    bigHero.style.fontFamily = `"Instrument Serif", serif`;
+    bigHero.style.fontFamily = `"Oswald", sans-serif`;
   }
 }
 
@@ -76,30 +76,30 @@ function generalFeatures() {
 function servicesDiv() {
   for (let i = 0; i < servicesDivsData.length; i++) {
     let serviceDiv = document.querySelector(
-      `body .gas-service:nth-of-type(${i + 4})`,
+      `body .main-service:nth-of-type(${i + 4})`,
     );
     let serviceUl = "";
     for (let o = 0; o < servicesDivsData[i][getLang()].ulText.length; o++) {
       serviceUl += `<li>${servicesDivsData[i][getLang()].ulText[o]}</li>`;
     }
     let theVid = document.querySelector(
-      `body .gas-service:nth-of-type(${i + 4}) video`,
+      `body .main-service:nth-of-type(${i + 4}) video`,
     );
     theVid.setAttribute("src", `../../../${servicesDivsData[i].vid}`);
     let h2 = document.querySelector(
-      `body .gas-service:nth-of-type(${i + 4}) .content h2`,
+      `body .main-service:nth-of-type(${i + 4}) .content h2`,
     );
     h2.textContent = servicesDivsData[i][getLang()].title;
     let p1 = document.querySelector(
-      `body .gas-service:nth-of-type(${i + 4}) .content p:first-of-type`,
+      `body .main-service:nth-of-type(${i + 4}) .content p:first-of-type`,
     );
     p1.textContent = servicesDivsData[i][getLang()].p1;
     let p2 = document.querySelector(
-      `body .gas-service:nth-of-type(${i + 4}) .content p:last-of-type`,
+      `body .main-service:nth-of-type(${i + 4}) .content p:last-of-type`,
     );
     p2.textContent = servicesDivsData[i][getLang()].p2;
     let ul = document.querySelector(
-      `body .gas-service:nth-of-type(${i + 4}) .content ul`,
+      `body .main-service:nth-of-type(${i + 4}) .content ul`,
     );
     ul.innerHTML = serviceUl;
   }

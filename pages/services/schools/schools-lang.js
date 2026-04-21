@@ -32,10 +32,10 @@ function toggleLang() {
 
 function bigHeroText() {
   if (getLang() === "ar") {
-    bigHero.textContent = "محطات الوقود";
+    bigHero.textContent = "المدارس";
     bigHero.style.fontFamily = `"Beiruti", sans-serif`;
   } else {
-    bigHero.textContent = "gas stations";
+    bigHero.textContent = "schools";
     bigHero.style.fontFamily = `"Oswald", sans-serif`;
   }
 }
@@ -54,14 +54,14 @@ function mainSec() {
 function generalFeatures() {
   if (getLang() === "ar") {
     generalFeaturesh2.innerHTML =
-      "مزايا الذكاء الاصطناعي<br>كيف تعزز المراقبة بالذكاء الاصطناعي كفاءة تشغيل محطات الوقود";
+      "مزايا الذكاء الاصطناعي<br>كيف تعزز المراقبة بالذكاء الاصطناعي كفاءة تشغيل المدارس";
     generalFeaturesP.textContent =
-      "تحلّل رقيب بث الكاميرات بشكل لحظي لمتابعة أداء الموظفين، وتعزيز الالتزام بإجراءات السلامة، واكتشاف المخاطر التشغيلية في مختلف أنحاء المحطة.";
+      "يقوم نظام رقيب بتحليل بث الكاميرات بشكل لحظي داخل الصفوف والممرات ومرافق المدرسة لمتابعة الحضور، وضمان سلامة الطلاب، وتقييم أداء المعلمين. كما يوفر تنبيهات تلقائية ورؤى تشغيلية تساعد الإدارة على الحفاظ على بيئة تعليمية آمنة وفعّالة.";
   } else {
     generalFeaturesh2.innerHTML =
-      "AI FEATURES <br> How AI Monitoring Improves Gas Station Operations";
+      "AI FEATURES <br> How AI Monitoring Improves Schools Operations";
     generalFeaturesP.textContent =
-      "Rgeeb analyzes real-time camera feeds to monitor employee activity, enforce safety procedures, and detect operational risks across the station.";
+      "Rgeeb analyzes real-time camera feeds across classrooms, corridors, and school facilities to monitor attendance, student safety, and teacher performance. The system provides automated alerts and operational insights that help administrators maintain a safe and efficient learning environment.";
   }
   generalFeaturesContainer.innerHTML = "";
   for (let i = 0; i < generalFeaturesData.length; i++) {

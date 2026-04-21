@@ -303,10 +303,8 @@ header i:hover {
 .big-hero h1 {
     color: var(--text-main);
     text-transform: uppercase;
-    font-weight: 300;
-    font-size: 120px;
-    letter-spacing: -10px;
-    word-spacing: 25px;
+    font-weight: 200;
+    font-size: 100px;
 }
 
 .big-hero img {
