@@ -1,4 +1,8 @@
-let currentEmailInNewsletter = [];
+const supabaseUrl = "https://gppccwbatoejlvuvpuvl.supabase.co";
+const supabaseKey =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdwcGNjd2JhdG9lamx2dXZwdXZsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY3NzA0NDAsImV4cCI6MjA5MjM0NjQ0MH0.PhSja0pEkoKhHDVkO8VTJGbuc0vw2gGDcPKFY_DmBis";
+const _supabase = supabase.createClient(supabaseUrl, supabaseKey);
+
 let isEmailInNewsletterFound = false;
 
 // INIT
@@ -57,7 +61,12 @@ let headerMenuAText = document.querySelectorAll("header .menu a");
 let headerData = {
   ar: ["الرئيسية", "الخدمات", "من نحن؟", "تواصل معنا"],
   en: ["home", "services", "about us", "contact us"],
-  href: ["index.html", "pages/services/services.html", "#", "#"],
+  href: [
+    "index.html",
+    "pages/services/services.html",
+    "pages/about_us/about-us.html",
+    "pages/contact_us/contact-us.html",
+  ],
 };
 
 // -- footer
@@ -112,29 +121,32 @@ let footerData = {
 
 emailjs.init("xrChcTWgEzmWSc972");
 
-footerForm.addEventListener("submit", function (e) {
+footerForm.addEventListener("submit", async function (e) {
   e.preventDefault();
+  const emailValue = footerFormInput.value.trim(); // أضفنا trim لمنع المسافات الفارغة
 
-  const emailValue = footerFormInput.value;
-
-  // فحص إذا كان الحقل فارغاً
+  // 1. فحص الفراغ
   if (emailValue === "") {
-    showError(footerFormerrorMsg);
+    showError();
     return;
   }
 
-  // فحص إذا كان الإيميل مسجلاً مسبقاً (استخدام includes أسهل من الـ for loop)
-  if (currentEmailInNewsletter.includes(emailValue)) {
-    showError(footerFormeEmailFoundMsg);
-    return;
-  }
-
-  // بـدء عملية الإرسال
+  // 2. تشغيل التحميل "فوراً" قبل أي اتصال بالقاعدة (UX)
   startLoadingState();
 
-  const templateParams = {
-    email: emailValue,
-  };
+  // 3. محاولة الإرسال للقاعدة
+  const { data, error } = await _supabase
+    .from("Newsletters") // تأكد أن الاسم يبدأ بحرف كبير N مثل ما كتبت
+    .insert([{ email: emailValue }]);
+
+  if (error) {
+    // إذا كان الإيميل موجوداً (خطأ تكرار)
+    foundingMsg(); // استدعاء دالة "الإيميل موجود" اللي أنت تعبت فيها
+    return;
+  }
+
+  // 4. إذا نجح الحفظ في القاعدة.. نرسل الإيميل
+  const templateParams = { email: emailValue };
 
   emailjs.send("service_mdaa6dw", "template_iwcrh4z", templateParams).then(
     function (response) {
@@ -144,8 +156,6 @@ footerForm.addEventListener("submit", function (e) {
       handleError();
     },
   );
-
-  console.log(currentEmailInNewsletter);
 });
 
 function startLoadingState() {
@@ -156,31 +166,36 @@ function startLoadingState() {
 }
 
 function handleSuccess(emailValue) {
+  // 1. إرجاع الأيقونة لشكلها الطبيعي (الطائرة) وإيقاف الدوران
   theIcon.classList.replace("fa-spinner", "fa-paper-plane");
   theIcon.classList.remove("spin");
+
+  // 2. إظهار علامة الصح (حالة النجاح)
   footerForm.classList.add("sent");
   footerForm.classList.remove("unclick");
 
-  currentEmailInNewsletter.push(emailValue);
+  // 3. إعادة تعيين الفورم (مسح الإيميل المكتوب)
   footerForm.reset();
 
+  // 4. أهم جزء: مؤقت زمني لإعادة الزر للعمل (UX)
   setTimeout(() => {
-    footerForm.classList.remove("sent");
-    footerFormSentBtn.disabled = false;
-  }, 2000);
+    footerForm.classList.remove("sent"); // إخفاء العلامة الخضراء
+    footerFormSentBtn.disabled = false; // تفعيل الزر مرة أخرى
+  }, 2000); // 3000 تعني 3 ثوانٍ، تقدر تخليها 2000 إذا تحب أسرع
 }
 
-function showError(errorElement) {
+function showError() {
   footerForm.classList.add("error");
-  errorElement.classList.add("active");
+  footerForm.classList.add("error");
   setTimeout(() => {
     footerForm.classList.remove("error");
-    errorElement.classList.remove("active");
+    footerForm.classList.remove("error");
   }, 2000);
 }
 
 function handleError() {
-  theIcon.classList.replace("fa-spinner", "fa-paper-plane");
+  theIcon.classList.remove("fa-spinner");
+  theIcon.classList.add("fa-paper-plane");
   theIcon.classList.remove("spin");
   footerForm.classList.add("error");
   footerFormerrorMsg.classList.add("active");
@@ -189,6 +204,21 @@ function handleError() {
   setTimeout(() => {
     footerForm.classList.remove("error");
     footerFormerrorMsg.classList.remove("active");
+    footerFormSentBtn.disabled = false;
+  }, 2000);
+}
+
+function foundingMsg() {
+  theIcon.classList.remove("fa-spinner");
+  theIcon.classList.add("fa-paper-plane");
+  theIcon.classList.remove("spin");
+  footerForm.classList.add("error");
+  footerFormeEmailFoundMsg.classList.add("active");
+  footerForm.classList.remove("unclick");
+
+  setTimeout(() => {
+    footerForm.classList.remove("error");
+    footerFormeEmailFoundMsg.classList.remove("active");
     footerFormSentBtn.disabled = false;
   }, 2000);
 }
@@ -230,7 +260,13 @@ function header(src) {
   for (let i = 0; i < headerMenuAText.length; i++) {
     headerMenuAText[i].textContent = headerData[getLang()][i];
     headerMenuAText[i].setAttribute("href", src + headerData.href[i]);
-    if (headerData.en[i].toUpperCase() === htmlPage.id.toUpperCase()) {
+    let htmlID;
+    if (htmlPage.id === "ABOUT-US" || htmlPage.id === "CONTACT-US") {
+      htmlID = htmlPage.id.split("-").join(" ");
+    } else {
+      htmlID = htmlPage.id;
+    }
+    if (headerData.en[i].toUpperCase() === htmlID.toUpperCase()) {
       headerMenuAText[i].classList.add("active");
     } else {
       headerMenuAText[i].classList.remove("active");
