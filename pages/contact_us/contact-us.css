@@ -52,3 +52,298 @@
 .contact-types .container>div a:hover {
     text-decoration: none;
 }
+
+/* fill form */
+
+.fill-form {
+    background-color: var(--bg-main);
+    padding: 60px 20px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    transition: background 0.3s ease;
+}
+
+.fill-form.unclick {
+    pointer-events: none;
+}
+
+.fill-form .container {
+    border: 1px solid transparent;
+    background-color: var(--bg-card);
+    max-width: 800px;
+    width: 100%;
+    padding: 60px 40px 40px;
+    border-radius: 16px;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.fill-form.error .container {
+    border-color: var(--wrong);
+}
+
+.fill-form.sent .container {
+    border-color: var(--correct);
+}
+
+.fill-form h1 {
+    color: var(--gold-soft);
+    font-size: 25px;
+    margin-bottom: 30px;
+    font-weight: 400;
+    word-spacing: 5px;
+    text-align: center;
+    line-height: 1.4;
+    text-transform: capitalize;
+}
+
+.fill-form.error h1 {
+    color: var(--wrong);
+}
+
+.fill-form .inputs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.fill-form .inputs div:last-child {
+    grid-column: span 2;
+}
+
+.fill-form label {
+    display: block;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.fill-form input,
+.fill-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-main);
+    font-size: 20px;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.fill-form input:focus,
+.fill-form textarea:focus {
+    border-color: var(--gold-soft);
+    box-shadow: var(--gold-glow);
+}
+
+.fill-form input.error,
+.fill-form textarea.error {
+    border-color: var(--wrong);
+}
+
+.fill-form textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+.fill-form ::placeholder {
+    opacity: 0.5;
+    text-transform: capitalize;
+}
+
+.fill-form button {
+    text-transform: uppercase;
+    margin-top: 30px;
+    width: 100%;
+    padding: 14px;
+    background-color: var(--blue-primary);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.fill-form button div {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: inherit;
+    scale: 0;
+    transition: none;
+}
+
+.fill-form button div.active {
+    scale: 1;
+}
+
+.fill-form button div i {
+    animation: spin 1s infinite ease-out;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.fill-form.error button {
+    background: var(--wrong);
+}
+
+.fill-form button:hover {
+    background-color: var(--blue-hover);
+    transform: translateY(-2px);
+}
+
+.fill-form button:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 600px) {
+    .fill-form .inputs {
+        grid-template-columns: 1fr;
+    }
+
+    .fill-form .inputs div:last-child {
+        grid-column: span 1;
+    }
+
+    .fill-form .container {
+        padding: 20px;
+    }
+}
+
+@keyframes pulse-animation-red {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 77, 77, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 77, 77, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 77, 77, 0);
+    }
+}
+
+.fill-form .fill-form-error-msg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--wrong);
+    overflow: hidden;
+    height: 0;
+}
+
+.fill-form .fill-form-error-msg.active {
+    height: 40px;
+    animation: pulse-animation-red 2s infinite;
+}
+
+
+.fill-form .fill-form-error-msg p {
+    padding: 10px;
+    color: var(--text-main);
+    font-size: 17px;
+    text-transform: capitalize;
+}
+
+.fill-form .fill-form-found-msg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--wrong);
+    overflow: hidden;
+    height: 0;
+}
+
+.fill-form .fill-form-found-msg.active {
+    height: 40px;
+    animation: pulse-animation-red 2s infinite;
+}
+
+
+.fill-form .fill-form-found-msg p {
+    padding: 10px;
+    color: var(--text-main);
+    font-size: 17px;
+    text-transform: capitalize;
+}
+
+@keyframes pulse-animation-green {
+    0% {
+        box-shadow: 0 0 0 0 rgba(77, 255, 130, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 77, 77, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 77, 77, 0);
+    }
+}
+
+.fill-form .fill-form-sent-msg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--correct);
+    overflow: hidden;
+    height: 0;
+}
+
+.fill-form .fill-form-sent-msg.active {
+    height: 40px;
+    animation: pulse-animation-green 2s infinite;
+}
+
+
+.fill-form .fill-form-sent-msg p {
+    padding: 10px;
+    color: var(--text-main);
+    font-size: 17px;
+    text-transform: capitalize;
+}

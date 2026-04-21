@@ -118,6 +118,10 @@ body.no-face-page>*:is(:not(header, .to-top-btn, .theme-page)) {
     top: 80px;
 }
 
+body.no-face-page footer .send-msg {
+    display: none;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -149,6 +153,19 @@ body.no-face-page>*:is(:not(header, .to-top-btn, .theme-page)) {
 
 input[type='hidden'] {
     display: none;
+}
+
+/* Chrome, Edge, Safari */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+    appearance: textfield;
+    -moz-appearance: textfield;
 }
 
 button {

@@ -63,6 +63,53 @@
                 </div>
             </div>
         </div>
+        <div class="fill-form">
+            <div class="container">
+                <div class="fill-form-error-msg msg">
+                    <p>Please verify the entered data</p>
+                </div>
+                <div class="fill-form-found-msg msg">
+                    <p>phone number already found</p>
+                </div>
+                <div class="fill-form-sent-msg msg">
+                    <p>sent done !</p>
+                </div>
+                <h1>you can also send some info. about you and we'll cotact with
+                    you</h1>
+                <form>
+                    <div class="inputs">
+                        <div>
+                            <label for="the-name">your name</label>
+                            <input placeholder="enter your name" type="text"
+                                name="the-name" id="the-name">
+                        </div>
+                        <div>
+                            <label for="the-email">phone number</label>
+                            <input placeholder="phone number start with 05"
+                                type="email" name="the-email" id="the-email">
+                        </div>
+                        <div>
+                            <label for="the-business-type">your business
+                                type</label>
+                            <input placeholder="ex: restaurant, cafe, store..."
+                                type="text" name="the-business-type"
+                                id="the-business-type">
+                        </div>
+                        <div>
+                            <label for="the-msg">message</label>
+                            <textarea placeholder="more than 50 letters"
+                                name="the-msg" id="the-msg"></textarea>
+                        </div>
+                    </div>
+                    <button type="submit">
+                        <span>send</span>
+                        <div class="loading">
+                            <i class="fa-solid fa-spinner"></i>
+                        </div>
+                    </button>
+                </form>
+            </div>
+        </div>
         <footer>
             <div class="container">
                 <div class="social-media">
