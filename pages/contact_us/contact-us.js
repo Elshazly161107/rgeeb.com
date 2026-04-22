@@ -159,9 +159,17 @@ contactForm.addEventListener("submit", async (e) => {
       contactForm.reset(); // تصفير الفورم
     }
   } else {
+    fillFormInputsPlaceholders.forEach((ele) => {
+      if (ele.value === "") {
+        ele.classList.add("error");
+      }
+    });
     fillFormDiv.classList.add("error");
     fillFormErrorDiv.classList.add("active");
     setTimeout(() => {
+      fillFormInputsPlaceholders.forEach((ele) => {
+        ele.classList.remove("error");
+      });
       fillFormDiv.classList.remove("error");
       fillFormErrorDiv.classList.remove("active");
       fillFormDiv.classList.remove("unclick");
