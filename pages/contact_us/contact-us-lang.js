@@ -43,6 +43,8 @@ function fillFormText() {
       "you can also send some info. about you and we'll cotact with you";
   }
 
+  formBtnSpan.textContent = fillFormData[getLang()].btn;
+
   for (let i = 0; i < fillFormMsgs.length; i++) {
     fillFormMsgs[i].textContent = fillFormData[getLang()].msgs[i];
   }

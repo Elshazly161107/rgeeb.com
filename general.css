@@ -635,14 +635,12 @@ footer .contact a {
     direction: ltr;
     color: var(--text-main);
     text-decoration: none;
-    opacity: 0.5;
     transition: none;
     font-size: 15px;
     font-weight: 100;
 }
 
 footer .contact a:hover {
-    opacity: 1;
     text-decoration: underline;
 }
 

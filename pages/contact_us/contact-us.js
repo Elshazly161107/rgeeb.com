@@ -29,10 +29,17 @@ contactTypes();
 //
 let fillFormData = {
   ar: {
-    lables: ["الاسم", "البريد الاكتروني", "نوع النشاط التجاري", "رسالتك"],
+    lables: [
+      "الاسم",
+      "البريد الاكتروني",
+      "رقم الهاتف",
+      "نوع النشاط التجاري",
+      "رسالتك",
+    ],
     placeholders: [
       "ادخل اسمك",
       "ادخل بريدك الالكتروني",
+      "رقم هاتفك",
       "مثال: مطعم، مقهى، محل...",
       "أكثر من 50 حرف",
     ],
@@ -41,12 +48,20 @@ let fillFormData = {
       "البريد مسجل بالفعل",
       "تم إرسال البانات بنجاح .. سنتواصل معك في أقرب وقت",
     ],
+    btn: "ارسال",
   },
   en: {
-    lables: ["your name", "email", "your business type", "message"],
+    lables: [
+      "your name",
+      "email",
+      "your phone number",
+      "your business type",
+      "message",
+    ],
     placeholders: [
       "enter your name",
       "enter your email",
+      "enter your phone number",
       "ex: restaurant, cafe, store...",
       "more than 50 letters",
     ],
@@ -55,6 +70,7 @@ let fillFormData = {
       "email already signed",
       "sent done !",
     ],
+    btn: "send",
   },
 };
 
@@ -64,6 +80,7 @@ let fillFormInputsPlaceholders = document.querySelectorAll(
   ".fill-form form :is(input, textarea)",
 );
 let fillFormMsgs = document.querySelectorAll(".fill-form .msg p");
+let formBtnSpan = document.querySelector(".fill-form form button");
 
 fillFormText();
 
@@ -105,11 +122,16 @@ contactForm.addEventListener("submit", async (e) => {
   const formData = {
     the_name: document.getElementById("the-name").value,
     the_email: document.getElementById("the-email").value,
+    the_phone: document.getElementById("the-phone").value,
     the_business_type: document.getElementById("the-business-type").value, // استخدامه كـ Subject
     the_msg: document.getElementById("the-msg").value,
   };
 
   if (formData.the_name !== "") {
+    validation++;
+  }
+
+  if (formData.the_email !== "") {
     validation++;
   }
 
@@ -125,7 +147,7 @@ contactForm.addEventListener("submit", async (e) => {
     validation++;
   }
 
-  if (validation === 4) {
+  if (validation === 5) {
     isValidData = true;
     console.log("good");
   } else {
