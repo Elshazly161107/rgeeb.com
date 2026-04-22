@@ -253,7 +253,7 @@ let serviceContactUsData = [
     },
   },
   {
-    href: "",
+    href: "../contact_us/contact-us.html",
     ar: {
       title: "اطلب عرضًا توضيحيًا",
       p1: "احجز استشارة سريعة للتعرّف على حل المراقبة الذكية الأنسب لنشاطك التجاري أو منشأتك.",

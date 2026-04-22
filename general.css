@@ -609,6 +609,10 @@ footer .contact>div:hover {
     background: var(--blue-primary);
 }
 
+footer .contact>div:hover :is(p, a, h3) {
+    color: white;
+}
+
 footer .contact i {
     color: var(--gold-soft);
 }

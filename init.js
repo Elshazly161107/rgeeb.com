@@ -1,10 +1,3 @@
-const supabaseUrl = "https://gppccwbatoejlvuvpuvl.supabase.co";
-const supabaseKey =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdwcGNjd2JhdG9lamx2dXZwdXZsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY3NzA0NDAsImV4cCI6MjA5MjM0NjQ0MH0.PhSja0pEkoKhHDVkO8VTJGbuc0vw2gGDcPKFY_DmBis";
-const _supabase = supabase.createClient(supabaseUrl, supabaseKey);
-
-let isEmailInNewsletterFound = false;
-
 // INIT
 
 let htmlPage = document.querySelector("html");
@@ -19,20 +12,41 @@ if (!sessionStorage.getItem("currentLang")) {
 }
 
 // theme
+
 let body = document.body;
 let modeBtn = document.getElementById("theme-btn");
-let fade = document.querySelector(".theme-page");
+let icon = modeBtn.querySelector("i");
+
+function updateIcon(isLight) {
+  if (isLight) {
+    icon.classList.replace("fa-sun", "fa-moon");
+  } else {
+    icon.classList.replace("fa-moon", "fa-sun");
+  }
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+  const savedTheme = sessionStorage.getItem("theme");
+
+  if (savedTheme === "light") {
+    body.classList.add("light");
+    updateIcon(true);
+  }
+});
 
 modeBtn.addEventListener("click", function () {
   setTimeout(() => {
     body.classList.toggle("light");
 
-    let icon = modeBtn.querySelector("i");
-    if (body.classList.contains("light")) {
-      icon.classList.replace("fa-sun", "fa-moon");
+    const isLight = body.classList.contains("light");
+
+    if (isLight) {
+      sessionStorage.setItem("theme", "light");
     } else {
-      icon.classList.replace("fa-moon", "fa-sun");
+      sessionStorage.setItem("theme", "dark");
     }
+
+    updateIcon(isLight);
   }, 150);
 });
 
@@ -70,6 +84,13 @@ let headerData = {
 };
 
 // -- footer
+
+const supabaseUrl = "https://gppccwbatoejlvuvpuvl.supabase.co";
+const supabaseKey =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdwcGNjd2JhdG9lamx2dXZwdXZsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY3NzA0NDAsImV4cCI6MjA5MjM0NjQ0MH0.PhSja0pEkoKhHDVkO8VTJGbuc0vw2gGDcPKFY_DmBis";
+const _supabase = supabase.createClient(supabaseUrl, supabaseKey);
+
+let isEmailInNewsletterFound = false;
 
 let footerForm = document.querySelector("footer form");
 let footerFormSentBtn = document.querySelector("footer form button");
